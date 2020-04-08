@@ -1,0 +1,35 @@
+@import "basic-imports";
+
+@import "components/color.class";
+
+// Fonts
+@import "../fonts/icons/import";
+@import "../fonts/filson/import";
+
+// Components
+@import "components/global";
+@import "components/typography";
+@import "components/grid";
+/*
+@import "components/buttons";
+@import "components/inputs";
+*/
+
+// Layout
+@import "layout/header";
+
+body {
+	&::-webkit-scrollbar{
+    background-color: lighten(color("orange", "base"), 25%);
+    width: 8px;
+    border-radius: 20px;
+	}
+	&::-webkit-scrollbar-track{
+    background-color: lighten(color("orange", "base"), 25%);
+    border-radius: 20px;
+	}
+	&::-webkit-scrollbar-thumb{
+    background-color: lighten(color("orange", "base"), 5%);
+    border-radius: 20px;
+	}
+}

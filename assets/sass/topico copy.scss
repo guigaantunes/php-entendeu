@@ -1,0 +1,257 @@
+@import "basic-imports";
+//@import "pagamento";
+
+.all-content{
+	display: flex;
+    width: max-content;
+    justify-content: center;
+    margin: auto;
+}
+
+.small-space{
+	margin-top: 12px;
+}
+
+.search{
+	width: 100%;
+    height: 37px;
+    border-radius: 11px;
+    border: 1px solid #c1c1c1;
+    padding-left: 10px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.topico{
+	max-width: 757px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	padding: 0px 40px 0px 40px;
+	
+	.topico-img{
+		max-width: 757px;	
+		box-shadow: 0 4px 25px 0 rgba(0,0,0,0.2), 0 0px 20px 0 rgba(0,0,0,0);
+	    border-radius: 25px;
+	    margin: 20px 0px 55px 0px;
+	  //  padding: 0px 40px 0px 40px;
+	}
+	
+	.topico-title{
+		font-size: 38px;	
+	}
+
+	.content-terms{
+		font-size: 16px;
+		color: color("gray", "lighten");
+		line-height: 1.3;
+		font-family: $font;
+		margin-bottom: 55px;
+	}
+	
+	.conteudo-amostra{
+		color: color("gray", "lighten");
+	}
+}
+
+.print-items{
+	max-height: 65px;
+	display: flex;
+	width: 100%;
+	margin-top: 75px;
+	
+	.print{
+		width: 55px;
+		height: 65px;
+		margin-right: 5px;
+	}
+	.text-print{
+		color: #EA4D49;
+		font-family: $font;
+		font-size: 16px;
+		text-align: left;
+		line-height: 1.3;
+		margin-top: 9px;
+	}
+}
+
+
+
+.side-column{
+	width: 300px;
+	height: 100%;
+	display: flex;
+	justify-content: start;
+	//align-items: center;
+	flex-direction: column;
+	
+	.study-mark{
+		font-size: 16px;
+		font-family: $font2;
+		color: #C1C1C1;
+	}
+	
+	.container {
+		padding-left: 29px !important;
+	}
+	
+	.checkmark{
+		top: 6px;
+		border: 2px solid #c1c1c1;
+	}
+	
+	.active{
+		display: none;
+	}
+}
+
+.compartilhar{
+	color: color("gray", "lighten");
+	font-size: 16px;
+	font-family: $font;
+}
+
+.back-link{
+	text-decoration: underline;
+	font-size: 20px;
+	font-family: $font;
+	text-align: right;
+	margin-bottom: 55px;
+}
+
+//////////////////////
+
+.radio-option{
+    display: flex;
+    //padding: 16px 14px 0px 11px;
+    justify-content: center;
+}
+    
+    /* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 22px;
+  //margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Hide the browser's default radio button */
+	input {
+	  position: absolute;
+	  opacity: 0;
+	  cursor: pointer;
+	  height: 0;
+	  width: 0;
+	}
+}
+
+.active{
+	.study-mark{
+		a{
+			color: color("green", "base");
+		}
+	}
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  //background-color: #eee;
+  border: 2px solid #000000;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  border: 2px solid color("green", "base");
+  .study-mark a{
+	  color: color("green", "base");
+  }
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+	top: 0px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: color("green", "base");
+    border: 2px solid white;
+}
+
+@media #{$small-and-down}{
+	.big-spaces-top{
+		width: 100%;
+		
+		.all-content{
+			width: 100%;
+			flex-direction: column;
+			
+			.search{
+				margin-top: 20px;
+			}
+			
+			.topico{
+				padding: 0;
+				width: 100%;
+				
+				.topico-title{
+					line-height: 1.2;
+				}
+				
+				.topico-img{
+					width: 100%;
+					margin-bottom: 20px;
+				}
+				
+				.content-terms{
+					margin-bottom: 20px;
+				}
+			}
+			
+			.back-link{
+				margin-bottom: 20px;
+				text-align: center;
+			}
+			
+			.column-2{
+				justify-content: center;
+			    width: 100%;
+			    display: flex;
+			    flex-direction: initial;
+			}
+			.print-items{
+			    width: max-content;
+			    margin-top: 0px;
+		    }
+		}
+	}
+}
+

@@ -1,0 +1,81 @@
+@import "basic-imports";
+
+.btn-green-empty:hover{
+	background: color("green", "gradient");
+	display: flex;
+	color: white;
+	border-radius: 12px !important;
+  margin: 0px 8px 9px 0px;
+  font-size: 26px;
+}
+
+.btn-orange-empty{
+	background: white;
+	border: 1px solid color("orange", "base");
+	display: flex;
+	color: color("orange", "base");
+	border-radius: 12px !important;
+  margin: 0px 8px 9px 0px;
+  font-size: 26px;
+}
+
+.btn-orange-empty:hover{
+	background: color("orange", "gradient");
+	display: flex;
+	color: white;
+	border-radius: 12px !important;
+  margin: 0px 8px 9px 0px;
+  font-size: 26px;	
+}
+
+.btn-green-empty{
+	background: white;
+	border: 1px solid color("green", "base");
+	display: flex;
+	color: color("green", "base");
+	border-radius: 12px !important;
+  margin: 0px 8px 9px 0px;
+  font-size: 26px;
+}
+
+.options{
+	display: flex;
+	justify-content: flex-start;
+	flex-flow: column;
+	flex-wrap: wrap;
+}
+
+.options-list{
+	margin-bottom: 50px;
+}
+
+@media #{$small-and-down}{
+	.btn-green-empty{
+		font-size: 18px;
+    line-height: 1.2;
+		padding: 8px 10px 5px;
+	}
+	
+	.btn-orange-empty{
+		font-size: 18px;
+    line-height: 1.2;
+    padding: 8px 10px 5px;
+	}
+	
+	.btn-orange-empty:hover{
+		font-size: 18px;
+    line-height: 1.2;
+    padding: 8px 10px 5px;
+	}
+	
+	.all-content{
+		width: 94%;
+    margin-right: auto;
+    margin-left: auto;
+	}
+	
+	.option-list{
+		margin-bottom: 20px;
+	}
+		
+}

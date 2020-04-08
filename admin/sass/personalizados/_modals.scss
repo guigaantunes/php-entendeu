@@ -1,0 +1,23 @@
+.remodal[data-remodal-id="recuperar-senha"] {
+	.titulo {
+		text-align: center;
+		margin-bottom: 20px;
+		i {
+			font-size: 50px;
+		}
+		h1 {
+			font-size: 1.8rem;
+			line-height: 1.8rem;
+			margin: 10px 0px 0px 0px;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+	}
+	.content {
+		@include cor-inputs-fnd-escuro (#FFF, color("admin","detalhe"));
+		form > .row:last-child {
+			text-align: center;
+		}
+	}
+}
+

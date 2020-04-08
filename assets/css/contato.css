@@ -1,0 +1,64 @@
+/*
+Error: Undefined variable: "$large-and-down".
+        on line 62 of sass/contato.scss
+
+57: 	.chamada{
+58: 		width: 70%;	
+59: 	}
+60: }
+61: 
+62: @media #{$large-and-down}{
+63: 	img{
+64: 		width: 100%;
+65: 	}
+66: }
+
+Backtrace:
+sass/contato.scss:62
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/script/tree/variable.rb:49:in `_perform'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/script/tree/node.rb:58:in `perform'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/script/tree/interpolation.rb:170:in `_perform'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/script/tree/node.rb:58:in `perform'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:543:in `block in run_interp_no_strip'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:541:in `map'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:541:in `run_interp_no_strip'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:548:in `run_interp'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:513:in `visit_media'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/stack.rb:79:in `with_base'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:161:in `visit'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/engine.rb:384:in `_render_with_sourcemap'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/engine.rb:301:in `render_with_sourcemap'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/plugin.rb:82:in `update_stylesheets'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/exec/base.rb:52:in `parse'
+/usr/local/share/gems/gems/sass-3.4.25/lib/sass/exec/base.rb:19:in `parse!'
+/usr/local/share/gems/gems/sass-3.4.25/bin/sass:13:in `<top (required)>'
+/usr/local/bin/sass:23:in `load'
+/usr/local/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$large-and-down\".\A         on line 62 of sass/contato.scss\A \A 57: 	.chamada{\A 58: 		width: 70%;	\A 59: 	}\A 60: }\A 61: \A 62: @media #{$large-and-down}{\A 63: 	img{\A 64: 		width: 100%;\A 65: 	}\A 66: }"; }

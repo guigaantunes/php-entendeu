@@ -1,0 +1,147 @@
+@import "basic-imports";
+
+.top-page{
+    z-index: 2;
+    position: relative;
+}
+
+.img-page{
+	display: flex;
+  align-items: center;
+  margin-top: -360px;
+  
+  img{
+    max-width: 100%;
+  }
+  
+  @media #{$medium-and-down}{
+    margin-top: -390px;
+  }
+  
+  @media #{$small-and-down}{
+    margin-top: 0;
+  }
+}
+
+.content-page{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -343px;
+    padding-bottom: 100px;
+    
+    img{
+	    max-width: 100%;
+    }
+    
+    .texts{
+	    display: flex;
+	    justify-content: space-between;
+	    
+	    .title{
+		    font-size: 26px;
+	    }
+	    
+	    p{
+		    font-size: 16px;
+		    font-weight: 500;
+	    }
+
+		  .content{
+			  columns: 2;
+		    column-gap: 40px;
+		  }
+/*
+	    .content-left{
+	        width: 48%;
+		    text-align: end;
+	    }
+	    
+	    .content-rigth{
+		    width: 48%;
+		    padding-top: 40px;
+	    }
+*/
+    }
+    
+    @media (max-width: 1420px){
+	    margin-top: -280px;
+    }
+    
+    @media #{$medium-and-down}{
+        margin-top: -190px;
+	    padding-bottom: 50px;
+    }
+    
+    @media #{$small-and-down}{
+	    margin-top: 40px;
+	    
+	    img{
+		    display: none;
+	    }
+	    
+	    .texts{
+		    flex-direction: column;
+		    
+		    .content-left{
+			    width: 100%;
+			    text-align: start;
+			    
+			    .title{
+				    line-height: 1;
+			    }
+		    }
+		    
+		    .content-rigth{
+		        padding-top: 0;
+			    width: 100%;
+		    }
+	    }
+    }
+}
+
+//@import "principal/section.entrega";
+@import "principal/section.contato";
+
+.btn-default{
+    margin-left: auto;
+    height: 60px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color("red", "base");
+    color: white;
+    font-size: 24px;
+    border-radius: 30px;
+    
+    @media #{$medium-and-down}{
+	    margin-left: 0;
+    }
+    
+    @media #{$small-and-down}{
+	    font-size: 18px;
+    }
+}
+
+.buttons-app{
+	margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+    background: black;
+    border-radius: 40px;
+    margin-top: 20px;
+    
+    @media #{$medium-and-down}{
+	    margin-left: 0;
+    }
+}
+
+.entrega{
+	margin-top: 0 !important;
+	
+	.content{
+	    transform: translateY(75%);
+	}
+}

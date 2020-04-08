@@ -1,0 +1,66 @@
+.contato{
+	max-width: 1440px;
+	margin: auto;
+	padding: 55px 0px 55px 0px;
+	background: white;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	
+	input {
+	    line-height: normal;
+	    font-size: 16px;
+	    width: 100%;
+	    border: none;
+	    border-bottom: 3px solid #333333;
+	    color: #333333;
+	    -webkit-appearance: textfield;
+	    background-color: white;
+	    -webkit-rtl-ordering: logical;
+	    cursor: text;
+	    padding: 25px 0px 1px 0px;
+	}  
+	
+	textarea {
+	    line-height: normal;
+	    font-size: 16px;
+	    width: 100%;
+	    border: none;
+	    border-bottom: 3px solid #333333;
+	    color: #333333;
+	    -webkit-appearance: textfield;
+	    background-color: white;
+	    -webkit-rtl-ordering: logical;
+	    cursor: text;
+	    padding: 25px 0px 1px 0px;
+	} 
+	
+	.contato-icon{
+		display: flex;
+	    margin-right: 10px;
+	    //margin-left: 25px;
+		font-size: 55px;
+	}
+	
+	.fb{
+		margin-left: 25px;
+	}
+
+	
+	.enviar{
+		display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    margin-bottom: 35px;
+	}
+	
+	.chamada{
+		width: 70%;	
+	}
+}
+
+@media #{$large-and-down}{
+	img{
+		width: 100%;
+	}
+}

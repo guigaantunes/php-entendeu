@@ -1,0 +1,279 @@
+.collapsible {
+  //border-top: 1px solid $collapsible-border-color;
+  //border-right: 1px solid $collapsible-border-color;
+  //border-left: 1px solid $collapsible-border-color;
+  //margin: $element-top-margin 0 $element-bottom-margin 0;
+  //@extend .z-depth-1;
+  
+  
+}
+div:not(.side-nav) {
+	.collapsible {
+		@extend .z-depth-1;
+		margin: 6px 3px;
+		& > li {
+			border-bottom: none;
+			margin: 0;
+			.collapsible-header {
+				&:after,
+				&:before {
+					content: "";
+					display: block;
+					position: absolute;
+					right: 10px;
+					top: 50%;
+					margin: -1px 0px 0px 0px;
+					width: 16px;
+					height: 2px;
+					background: $collapsible-border-color;
+				}
+				&:after {
+					transform: rotate(90deg);
+					-webkit-transform: rotate(90deg);
+					transition: all ease .3s;
+					-webkit-transition: all ease .3s;
+				}
+				&.active {
+					&:after {
+						transform: rotate(0deg);
+						-webkit-transform: rotate(0deg);
+						transition: all ease .3s;
+						-webkit-transition: all ease .3s;
+					}
+				}
+				
+				i.help {
+					font-size: 1rem;
+					float: none;
+					display: inline-block;
+					position: relative;
+					top: 3px;
+					cursor: default;
+					&:hover {
+						color: color("admin","detalhe");
+					}
+				}
+			}
+			.collapsible-body {
+				padding: 1rem;
+				background-color: $collapsible-header-color;
+				&.upload-imagem {
+					padding: 0px;
+					form {
+						& > .row {
+							margin: 0px;
+							display: flex;
+							.area-imagem {
+								width: 350px;
+								display: flex;
+								flex-wrap: wrap;
+								justify-content: center;
+								align-items: center;
+								border-right: solid 1px $collapsible-border-color;
+								position: relative;
+								max-height: 300px;
+								
+								.img {
+									flex: 1 100%;
+									text-align: center;
+									max-width: 100%;
+									max-height: 100%;
+								}
+								.excluir {
+									position: absolute;
+									left: 50%;
+									bottom: 20px;
+									margin: 0px 0px 0px -6px;
+									&:hover {
+										color: color("admin","negacao");
+									}
+								}
+							}
+							.area-input {
+								flex-grow: 1;
+								padding: 20px;
+								& > .row:last-child {
+									margin: 0px;
+								}
+							}
+							@media only screen and (max-width: 620px) {
+								flex-wrap: wrap;
+								.area-imagem {
+									width: 100%;
+									border-right: none;
+									border-bottom: solid 1px $collapsible-border-color;
+									padding: 20px 0px 60px 0px;
+								}
+							}
+						}
+					}
+				}
+				form {
+					.row.upload {
+						margin: 0px;
+						display: flex;
+						border: solid 1px $collapsible-border-color;
+						.area-imagem {
+							width: 350px;
+							display: flex;
+							flex-wrap: wrap;
+							justify-content: center;
+							align-items: center;
+							border-right: solid 1px $collapsible-border-color;
+							position: relative;
+							max-height: 300px;
+							
+							.img {
+								flex: 1 100%;
+								text-align: center;
+								max-width: 100%;
+								max-height: 100%;
+								
+								i {
+									font-size: 70px;
+									color: color("admin","cinza-texto");
+								}
+							}
+							.excluir {
+								position: absolute;
+								left: 50%;
+								bottom: 20px;
+								margin: 0px 0px 0px -6px;
+								&:hover {
+									color: color("admin","negacao");
+								}
+							}
+						}
+						.area-input {
+							flex-grow: 1;
+							padding: 20px;
+							& > .row:last-child {
+								margin: 0px;
+							}
+						}
+						@media only screen and (max-width: 620px) {
+							flex-wrap: wrap;
+							.area-imagem {
+								width: 100%;
+								border-right: none;
+								border-bottom: solid 1px $collapsible-border-color;
+								padding: 20px 0px;
+							}
+						}
+					}
+					
+					.row.vinculacao {
+						display: flex;
+						flex: 1 100%;
+						align-items: center;
+						border: solid 1px $collapsible-border-color;
+						padding: 5px 20px 0px 20px;
+						margin-bottom: 10px;
+						
+						.nome {
+							flex: 1 45%;
+							h3 {
+								text-align: right;
+								font-size: 1rem;
+								font-weight: bold;
+								text-transform: uppercase;
+							}
+						}
+						.icone {
+							flex: 1;
+							padding: 0px 20px;
+							text-align: center;
+							color: $collapsible-border-color;
+						}
+						.input-field {
+							flex: 1 45%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.collapsible-header {
+	position: relative;
+	display: block;
+	cursor: pointer;
+	min-height: $collapsible-height;
+	line-height: $collapsible-height;
+	padding: 0 1rem;
+	background-color: $collapsible-header-color;
+	border-bottom: 1px solid $collapsible-border-color;
+	color: color("admin","chumbo");
+	text-transform: uppercase;
+	font-size: .85rem;
+	font-weight: bold;
+
+	i {
+		width: 2rem;
+		font-size: 1.6rem;
+		line-height: $collapsible-height;
+		display: block;
+		float: left;
+		text-align: center;
+		margin-right: 1rem;
+	}
+}
+
+.collapsible-body {
+  display: none;
+  border-bottom: 1px solid $collapsible-border-color;
+  box-sizing: border-box;
+  
+  & > p {
+    margin: 0;
+    padding: 2rem;
+  }
+}
+
+// sideNav collapsible styling
+.side-nav {
+
+  .collapsible {
+    border: none;
+    box-shadow: none;
+
+    li { padding: 0; }
+  }
+
+  .collapsible-header {
+    background-color: transparent;
+    border: none;
+    line-height: inherit;
+    height: inherit;
+    margin: 0 1rem;
+
+    i { line-height: inherit; }
+  }
+
+  .collapsible-body {
+    border: 0;
+    background-color: $collapsible-header-color;
+
+    li a { margin: 0 1rem 0 2rem; }
+  }
+
+}
+
+// Popout Collapsible
+
+.collapsible.popout {
+  border: none;
+  box-shadow: none;
+  > li {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    // transform: scaleX(.92);
+    margin: 0 24px;
+    transition: margin .35s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  }
+  > li.active {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    margin: 16px 0;
+    // transform: scaleX(1);
+  }
+}

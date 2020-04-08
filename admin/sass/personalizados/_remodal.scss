@@ -1,0 +1,300 @@
+/* Hide scroll bar */
+
+html.remodal-is-locked {
+	overflow: hidden;
+	
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+/* Anti FOUC */
+.remodal,
+[data-remodal-id] {
+	display: none;
+}
+
+/* Necessary styles of the overlay */
+
+.remodal-overlay {
+	position: fixed;
+	z-index: 9999;
+	top: -5000px;
+	right: -5000px;
+	bottom: -5000px;
+	left: -5000px;
+	
+	display: none;
+	
+	background: rgba( color("admin","escuro"), .9 );
+}
+.remodal-overlay.remodal-is-opening,
+.remodal-overlay.remodal-is-closing {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.remodal-overlay.remodal-is-opening {
+  -webkit-animation-name: remodal-overlay-opening-keyframes;
+  animation-name: remodal-overlay-opening-keyframes;
+}
+
+.remodal-overlay.remodal-is-closing {
+  -webkit-animation-name: remodal-overlay-closing-keyframes;
+  animation-name: remodal-overlay-closing-keyframes;
+}
+
+/* Necessary styles of the wrapper */
+
+.remodal-wrapper {
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	
+	display: none;
+	overflow: auto;
+	
+	text-align: center;
+	
+	-webkit-overflow-scrolling: touch;
+}
+
+.remodal-wrapper:after {
+	display: inline-block;
+	vertical-align: middle;
+	
+	height: 100%;
+	margin-left: -0.05em;
+	
+	content: "";
+}
+
+/* Fix iPad, iPhone glitches */
+
+.remodal-overlay,
+.remodal-wrapper {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+/* Necessary styles of the modal dialog */
+
+.remodal {
+	position: relative;
+	vertical-align: middle;
+	
+	outline: none;
+	
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 35px;
+	
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	
+	border-radius: 3px;
+	box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	text-align: initial;
+	background: #FFF;
+	max-width: 900px;
+	color: color("admin","chumbo");
+	
+	&.darken {
+		background: color("admin","escuro");
+		color: #FFF;
+	}
+	
+	&.med-remodal {
+		max-width: 700px;
+	}
+	&.min-remodal {
+		max-width: 400px;
+	}
+}
+.remodal.remodal-is-opening,
+.remodal.remodal-is-closing {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.remodal.remodal-is-opening {
+  -webkit-animation-name: remodal-opening-keyframes;
+  animation-name: remodal-opening-keyframes;
+}
+
+.remodal.remodal-is-closing {
+  -webkit-animation-name: remodal-closing-keyframes;
+  animation-name: remodal-closing-keyframes;
+}
+
+.remodal-is-initialized {
+  /* Disable Anti-FOUC */
+  display: inline-block;
+}
+
+/* Close button */
+
+.remodal-close {
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	display: block;
+	overflow: visible;
+	
+	width: 35px;
+	height: 35px;
+	margin: 0;
+	padding: 0;
+	
+	cursor: pointer;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+	text-decoration: none;
+	
+	color: #FFF;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	
+	&:hover,
+	&:focus {
+		opacity: 0.8;
+	}
+	&:before {
+		font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif !important;
+		font-size: 25px;
+		line-height: 35px;
+		
+		position: absolute;
+		top: 0;
+		left: 0;
+		
+		display: block;
+		
+		width: 35px;
+		
+		content: "\00d7";
+		text-align: center;
+	}
+}
+
+/* Keyframes
+   ========================================================================== */
+
+@-webkit-keyframes remodal-opening-keyframes {
+  from {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: none;
+    transform: none;
+
+    opacity: 1;
+  }
+}
+
+@keyframes remodal-opening-keyframes {
+  from {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: none;
+    transform: none;
+
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes remodal-closing-keyframes {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+
+    opacity: 0;
+  }
+}
+
+@keyframes remodal-closing-keyframes {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes remodal-overlay-opening-keyframes {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes remodal-overlay-opening-keyframes {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes remodal-overlay-closing-keyframes {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes remodal-overlay-closing-keyframes {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.lt-ie9 .remodal-overlay {
+  background: #2b2e38;
+}
+
+.lt-ie9 .remodal {
+  width: 700px;
+}

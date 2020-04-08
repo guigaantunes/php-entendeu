@@ -1,0 +1,44 @@
+//@charset "UTF-8";
+
+// Mixinsssssssss
+// @import "components/prefixer";
+@import "components/mixins";
+@import "components/color";
+
+// Variables;
+@import "components/variables";
+
+@import "personalizados/contextmenu";
+@import "personalizados/animacoes";
+@import "personalizados/remodal";
+@import "personalizados/zozo.tabs";
+@import "personalizados/swiper";
+ 
+// Styles personalizados 
+@import "personalizados/modals";
+@import "personalizados/login";
+@import "personalizados/page";
+
+@import "personalizados/dashboard";
+
+.mce-combobox input {
+	margin: 0px;
+}
+
+a[href="https://www.froala.com/wysiwyg-editor?k=u"] {
+    display: none !important;
+}
+.fr-popup {
+	z-index: 2000 !important;
+}
+.page-login .logo-admin {
+	margin-right: 20px;
+}
+.side-nav .logo {
+	padding-right: 55px;
+}
+
+.lista-cards-default{
+	display: flex;
+	flex-direction: column;
+}

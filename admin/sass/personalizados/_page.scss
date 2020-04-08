@@ -1,0 +1,8 @@
+.page {
+	background: #FFF;
+	margin: 0px 20px;
+	padding: 20px;
+	@media #{$small-and-down} {
+		margin: 0px;	
+	}
+}

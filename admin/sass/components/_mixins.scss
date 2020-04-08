@@ -1,0 +1,96 @@
+// @mixin box-shadow-2($args1, $args2) {
+//     -webkit-box-shadow: $args1, $args2;
+//     -moz-box-shadow: $args1, $args2;
+//     box-shadow: $args1, $args2;
+// }
+
+@mixin cor-inputs ($cor, $cor2) {
+	.input-field {
+		.prefix,
+		label {
+			color: $cor;
+			&.active {
+				color: $cor2;
+			}
+		}
+		input:not([readonly]),
+		textarea:not([readonly]) {
+			border-bottom-color: $cor;
+			box-shadow: 0 1px 0 0 $cor;
+			color: $cor;
+		}
+		input:focus:not([readonly]),
+		textarea:focus:not([readonly]) {
+			border-bottom-color: $cor2;
+			box-shadow: 0 1px 0 0 $cor2;
+			color: $cor2;
+		}
+	}
+}
+@mixin cor-inputs-fnd-escuro ($cor, $cor2) {
+	.input-field {
+		label {
+			color: $cor;
+			&.active {
+				color: $cor;
+				opacity: .8;
+			}
+		}
+		.prefix {
+			color: $cor;
+			&.active {
+				color: $cor2;
+			}
+		}
+		input:not([readonly]),
+		textarea:not([readonly]) {
+			border-bottom-color: $cor;
+			box-shadow: 0 1px 0 0 $cor;
+			color: $cor;
+		}
+	}
+}
+
+@mixin pb ($valor) {
+	-webkit-filter: grayscale($valor);
+	-moz-filter: grayscale($valor);
+    filter: grayscale($valor);
+}
+
+@mixin animated ($nome, $duracao, $delay) {
+	-webkit-animation-duration: $duracao;
+	animation-duration: $duracao;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-delay: $delay;
+	animation-delay: $delay;
+	-webkit-animation-name: $nome;
+	animation-name: $nome;
+}
+
+@mixin transition ($tempo, $easing) {
+	transition: all $tempo $easing;
+	-webkit-transition: all $tempo $easing;
+	-moz-transition: all $tempo $easing;
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}

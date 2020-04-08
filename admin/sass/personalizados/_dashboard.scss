@@ -1,0 +1,152 @@
+.page.dashboard {
+	background: transparent;
+	padding: 0px;
+	@media #{$small-and-down} {
+		padding: 0px 20px;	
+	}
+	& > .row {
+		@media only screen and (max-width: 900px) {
+			margin-bottom: 0px;	
+		}
+		& > .col {
+			background: #FFF;
+			border-radius: 3px;
+			padding: 20px;
+			margin: 0px 0px 20px 0px;
+			@media #{$small-and-down} {
+					
+			}
+			&.m6 {
+				width: 48%;
+			
+				&:last-child {
+					margin-left: 4%;
+				}
+				@media only screen and (max-width: 900px) {
+					width: 100%;
+					margin: 0px 0px 20px 0px !important;	
+				}
+			}
+		}
+	}
+	.col.m6:not(.dados-loja) {
+		border-left: solid 5px color("admin","escuro");
+		h1 {
+			font-size: 1rem;
+			line-height: 1rem;
+			margin: 0px;
+			font-weight: bold;
+		}
+		.table-content {
+			max-height: 200px;
+			overflow: scroll;
+			overflow-x: hidden;
+		}
+		table {
+			th,td {
+				font-size: .9rem;
+			}
+			td {
+				font-size: .8rem;
+				padding: 10px 5px;
+			}
+		}
+		&.verde {
+			border-color: #a0c574;
+			color: #a0c574;
+		}
+		&.azul {
+			border-color: #47bbc1;
+			color: #47bbc1;
+		}
+		&.laranja {
+			border-color: #ef8822;
+			color: #ef8822;
+		}
+		
+		.collapsible {
+			box-shadow: none;
+			border: none;
+			margin: 0px;
+			.collapsible-header {
+				background: color("admin","cinza-fundo-claro");
+				h1 {
+					line-height: 3rem;
+				}
+				position:relative;
+				&:before,
+				&:after {
+					content: "";
+					width: 15px;
+					height: 2px;
+					background: color("admin","cinza-texto");
+					position: absolute;
+					opacity: 1;
+					animation: all .3s ease;
+					-webkit-animation: all .3s ease;
+					right: 10px;
+					top: 50%;
+					margin-top: -2px;
+				}
+				&:after {
+					transform: rotate(-90deg);
+					-webkit-transform: rotate(-90deg);
+				}
+				&.active {
+					&:after {
+						opacity: 0;
+					}
+				}
+			}
+			.collapsible-body {
+				display: block;
+				//background: color("admin","cinza-fundo-claro");
+				border: solid 1px #dadada;
+				table {
+					margin: 0px 10px;
+					width: calc(100% - 20px);
+					th,td {
+						font-size: .9rem;
+					}
+					td {
+						font-size: .8rem;
+						padding: 10px 5px;
+					}
+				}
+			}
+		}
+	}
+	.col.dados-loja {
+		h1 {
+			font-size: 2.1rem;
+			margin: 0px;
+			line-height: 2.1rem;
+		}
+		& > p {
+			font-size: .9rem;
+			line-height: .9rem;
+			margin: 10px 0px 0px 0px;
+		}
+		.status {
+			&.ativa {
+				color: color("admin","aprovacao");
+			}
+			&.inativa {
+				color: color("admin","negacao");
+			}
+		}
+		.produtos {
+			margin-top: 25px;
+			p {
+				font-size: .9rem;
+			}
+			.progress {
+				margin: 0px;
+			}
+			label {
+				float: right;
+				font-weight: bold;
+			}
+		}
+	}
+}

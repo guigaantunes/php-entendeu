@@ -1,0 +1,30 @@
+$directory: "/assets/fonts/";
+
+/*
+@mixin importFont($fontFamily, $weight, $style, $folder, $file, $svgID) {
+	@font-face {
+	    font-family: #{$fontFamily};
+	    src: url('#{$directory}#{$folder}/#{$file}.eot');
+	    src: url('#{$directory}#{$folder}/#{$file}.eot?#iefix') format('embedded-opentype'),
+	        url('#{$directory}#{$folder}/#{$file}.woff2') format('woff2'),
+	        url('#{$directory}#{$folder}/#{$file}.woff') format('woff'),
+	        url('#{$directory}#{$folder}/#{$file}.ttf') format('truetype'),
+	        url('#{$directory}#{$folder}/#{$file}.svg##{$svgID}') format('svg'); 
+	    font-weight: #{$weight};
+	    font-style: #{$style};
+	}
+}
+
+@include importFont('Uni Sans', 'normal', 'normal', 'unisans', 'hinted-Uni-Sans-Regular', 'Uni-Sans-Regular');
+@include importFont('Uni Sans', 'normal', 'italic', 'unisans', 'hinted-Uni-Sans-Regular-Italic', 'Uni-Sans-Regular-Italic');
+
+@include importFont('Uni Sans', '600', 'normal', 'unisans', 'hinted-Uni-Sans-SemiBold', 'Uni-Sans-SemiBold');
+@include importFont('Uni Sans', '600', 'italic', 'unisans', 'hinted-Uni-Sans-SemiBold-Italic', 'Uni-Sans-SemiBold-Italic');
+
+@include importFont('Uni Sans', '700', 'normal', 'unisans', 'hinted-Uni-Sans-Bold', 'Uni-Sans-Bold');
+@include importFont('Uni Sans', '700', 'italic', 'unisans', 'hinted-Uni-Sans-Bold-Italic', 'Uni-Sans-Bold-Italic');
+
+@include importFont('Museo', 'bold', 'normal', 'museo', 'Museo-700', 'Museo-700');
+*/
+
+// @import "../../../fonts/material-icons/import";

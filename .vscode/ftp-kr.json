@@ -1,0 +1,16 @@
+{
+    "host": "entendeudireito.com.br",
+    "username": "edentendeudireit",
+    "password": "guiga.07082000",
+    "remotePath": "public_html/",
+    "protocol": "ftp",
+    "port": 21,
+    "fileNameEncoding": "utf8",
+    "autoUpload": true,
+    "autoDelete": false,
+    "autoDownload": true,
+    "ignore": [
+        "none"
+    ],
+    "ignoreJsonUploadCaution": true
+}

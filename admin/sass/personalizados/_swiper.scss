@@ -1,0 +1,110 @@
+@mixin swiperCheckbox($width, $height) {
+	background: color("admin","cinza-fundo-claro");
+	padding: 20px;
+	border-radius: 3px;
+	
+	&.checkbox {
+		.swiper-slide {
+			width: $width;
+			height: $height;
+			input[type="checkbox"] {
+				& + label {
+					background: #FFF;
+					border-radius: 3px;
+					border: solid 3px #FFF;
+					width: calc(100% - 6px);
+					height: calc(100% - 6px);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding: 0px;
+					img {
+						max-width: 60%;
+						max-height: 40%;
+					}
+					&:before {
+						content: none;
+					}
+				}
+				&:checked + label {
+					border-color: color("admin","aprovacao");
+				}
+			}
+		}
+	}
+}
+@mixin swiper($width, $height) {
+	background: color("admin","cinza-fundo-claro");
+	padding: 20px;
+	border-radius: 3px;
+	
+	
+	.swiper-slide {
+		width: $width;
+		height: $height;
+		background: #FFF;
+		border-radius: 3px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0px;
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+}
+@mixin swiperControls() {
+	.swiper-controls {
+		position: relative;
+		bottom: 0px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 10px;
+		
+		.swiper-button-prev,
+		.swiper-button-next {
+			background: none;
+			left: auto;
+			right: auto;
+			position: relative;
+			margin: 0px;
+			height: 22px;
+			top: inherit;
+			
+			i {
+				color: color("admin","cinza-texto");
+			}
+			&:hover i {
+				color: color("admin","detalhe");
+			}
+		}
+		.swiper-pagination {
+			position: relative;
+			margin: 0px 10px;
+			.swiper-pagination-bullet {
+				background: color("admin","cinza-texto");
+				opacity: 1;
+				margin: 0px 4px;
+			}
+			.swiper-pagination-bullet-active {
+				background: color("admin","detalhe");
+			}
+		}
+	}
+}
+.swiper {
+	& > label {
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}
+.swiper-container.checkbox {
+	@include swiperCheckbox(100px, 100px);
+}
+.swiper-container:not(.checkbox) {
+	@include swiper(210px, 100px);
+}
+@include swiperControls();

@@ -1,0 +1,281 @@
+@import "../components/hamburguer";
+
+body.menu-is-active{
+	overflow: hidden;
+}
+
+.header{
+	overflow: hidden;
+	
+	img{
+		width: 90%;
+	}
+	.menu-item {
+		font-family: $font;
+		color: ("gray", "base");
+	}
+	
+	.list-menu{
+		.item-menu{
+			display: inline;
+			a {
+				padding: 0px 20px 0px 20px;
+				font-size: 14px;
+				text-decoration: none;
+				color: color("gray", "base");
+				
+				&:hover{
+					text-decoration: underline;
+				} 
+				
+				@media #{$large-and-down}{
+					padding: 0px 15px 0px 15px;
+				}
+			}
+			.sair{
+				color: color("gray", "lighten") !important;
+			}
+		}
+		
+		@media #{$medium-and-down}{
+		    position: fixed;
+		    left: 0;
+		    top: 0;
+		    width: 100vw;
+		    height: 100vh;
+		    background: white;
+		    z-index: 99;
+		    display: flex;
+		    flex-direction: column;
+		    align-items: center;
+		    margin: 0;
+		    padding-top: 10%;
+		    transform: translateY(-100%);
+		    transition: ease .4s;
+		    
+		    .item-menu{
+		        margin-bottom: 15px;
+		        
+		        a{
+			        font-size: 18px;
+		        }
+		    }
+		    
+		    &.active{
+			    transform: translateY(0);
+			    transition: ease .4s;
+		    }
+		}
+	}
+	
+	.row{
+		height: max-content;
+		padding: 26px 0 26px 0;
+		
+		@media #{$small-and-down}{
+			padding: 5px 0;
+		}
+	}
+	
+	.logo{
+		display: flex;
+	    align-items: center;
+	    margin-right: 25px;
+	    width: 25%;
+	    padding-left: 10px;
+	    
+	    .img-logo{
+			object-fit: cover;
+			max-width: 100%;
+		}
+		
+		@media #{$medium-and-down}{
+			width: 300px;
+			margin-right: auto;
+		}
+		@media #{$small-and-down}{
+			width: 230px;
+		}
+	}
+	
+	.topo{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		
+		@media #{$medium-and-down}{
+			justify-content: flex-start;
+			flex-wrap: wrap;
+		}
+	}	
+	
+	.botoes-topo{
+		display: flex;
+		flex-wrap: wrap;
+		padding-right: 10px;
+		justify-content: flex-end;
+		
+		.assinar-agora{
+			display: flex;
+	    width: 151px;
+	    margin-right: 5px;
+	    margin-bottom: 10px;
+		}   
+		
+		.area-do-assinante{
+			display: flex;
+			width: 181px;
+		} 
+		
+		@media (max-width: 1310px) {
+			width: min-content;
+		}
+		
+		@media #{$medium-and-down} {
+			flex-wrap: nowrap;
+			
+			.assinar-agora{
+				margin-bottom: 0;
+			}
+		}
+		
+		@media #{$small-and-down} {
+			padding: 0;
+			position: fixed;
+		    bottom: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 40px;
+		    z-index: 10000;
+		    
+		    .assinar-agora-logado{
+			    justify-content: center;
+			    margin: 0;
+			    border-radius: 0;
+			    align-items: center;
+			    font-size: 15px;
+			    border-radius: 0px;
+			    width: 100%;
+			    .assinar-agora{
+				    display: none;
+			    }
+		    }
+	    
+		    .assinar-agora{
+			    justify-content: center;
+			    margin: 0;
+			    border-radius: 0;
+			    align-items: center;
+			    font-size: 13px;
+			    border-radius: 0px;
+			    width: 50%;
+		    }
+		    
+		    .area-do-assinante{
+			    justify-content: center;
+			    margin: 0;
+			    border-radius: 0;
+			    align-items: center;
+			    font-size: 13px;
+			    border-radius: 0px;
+			    width: 50%;
+		    }
+		}
+	}
+	
+	.btn-show-search{
+		display: flex;
+		align-items: center;
+		color: color('gray', 'base');
+		margin-left: 20px;
+		
+		i{
+			font-size: 20px;
+	    cursor: pointer;
+	    display: flex;
+	    align-items: center;
+		}
+		
+		@media #{$medium-and-down} {
+			display: none;
+		}
+	}
+
+	#busca-topo{
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: calc(75% + 30px);
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background: white;
+    align-items: center;
+    z-index: -100;
+    opacity: 0;
+    transition: ease .4s;
+		
+		.search-form{
+      display: flex;
+	    align-items: center;
+	    justify-content: flex-end;
+	    width: 100%;
+	    height: 60px;
+	    background: white;
+	    border-radius: 25px;
+	    padding-right: 20px;
+	    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.1);
+	    border: 2px solid #e0e0e0;
+	    overflow: hidden;
+	    
+	    input{
+        width: 100%;
+		    -webkit-appearance: none;
+		    padding: 0;
+		    margin: 0;
+		    border: 0;
+        background: transparent;
+		    padding-left: 20px;
+	    }
+	    
+	    button{
+		    appearance: none;
+		    border: none;
+		    background: none;
+	    }
+	    
+	    i{
+		    font-size: 20px;
+		    cursor: pointer;
+		    display: flex;
+		    align-items: center;
+	    }
+		}
+		
+		&.active{
+			z-index: 100;
+	    opacity: 1;
+	    transition: ease .4s;
+		}
+		
+		@media #{$medium-and-down} {
+	    position: relative;
+	    right: 0;
+      z-index: 10;
+	    opacity: 1;
+	    width: 100%;
+	    
+	    .search-form{
+        width: 100%;
+		    padding: 5px 10px;
+        height: 40px;
+		    
+		    input{
+	        padding-left: 10px;
+		    }
+	    }
+		}
+	}
+
+}

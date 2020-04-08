@@ -1,0 +1,28 @@
+/*!
+ * jQuery contextMenu - Plugin for simple contextMenu handling
+ *
+ * Version: v2.2.1-dev
+ *
+ * 
+ * Web: http://swisnl.github.io/jQuery-contextMenu/
+ *
+ * Copyright (c) 2011-2016 SWIS BV and contributors
+ *
+ * Licensed under
+ *   MIT License http://www.opensource.org/licenses/mit-license
+ *
+ * Date: 2016-06-17T13:49:48.330Z
+ */
+
+.context-menu-list {
+  display: inline-block;
+  opacity: 1;
+  margin-left: 5px;
+}
+
+.context-menu-item.context-menu-disabled {
+  cursor: default; 
+  span {
+	  color: #bbb;
+  }
+}

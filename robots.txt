@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /minha-conta
+Disallow: /pagamento
+Sitemap: https://entendeudireito.com.br/sitemap.xml

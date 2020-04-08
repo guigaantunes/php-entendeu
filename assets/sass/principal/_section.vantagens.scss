@@ -1,0 +1,36 @@
+.vantagens{
+	width: 100%;
+	height: max-content;
+	padding: 55px 110px 55px 110px;
+	background: color("green", "gradient");
+	display: flex;
+	align-items: center;
+}
+
+.title-vantagens{
+	//border-right:1px solid white;
+	text-align: right;
+}
+
+.separator {
+  	width: 6px;
+  	height: 220px;
+  	margin: auto;
+  	margin: 0px 90px 0px 90px;
+  	background: white;
+}
+
+@media #{$small-and-down}{
+	.separator{
+		display: none;
+	}
+	
+	.vantagens{
+		flex-wrap: wrap;
+		padding: 55px 30px 55px 30px;
+	
+		.title-vantagens{
+			text-align: left;
+		}
+	}
+}

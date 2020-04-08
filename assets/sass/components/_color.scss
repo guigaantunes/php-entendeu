@@ -1,0 +1,47 @@
+$gray: (
+	"base": #333333, //textos
+	"lighten": #878787
+);
+$orange: (
+	"base": #ED6726,
+	"gradient": linear-gradient(to right, #F58225 , #D75E40)
+);
+$green: (
+	"base": #59DE1B, 
+	"darken": #44AD13,
+	"gradient": linear-gradient(to right, #87E034 , #44AD13)
+);
+
+$social: (
+	"facebook": #3b5998,
+	"twitter": #55acee,
+	"linkedin": #0077b5,
+	"google": #dd4b39,
+);
+$shades: (
+  "black":        #000000,
+  "white":        #FFFFFF,
+  "transparent":  transparent
+);
+
+$colors: (
+	"gray": $gray,
+	"green": $green,
+	"orange": $orange,
+	"social": $social,
+	"shades": $shades
+);
+
+// usage: color("name_of_color", "type_of_color")
+// to avoid to repeating map-get($colors, ...)
+
+@function color($color, $type) {
+  @if map-has-key($colors, $color) {
+    $curr_color: map-get($colors, $color);
+    @if map-has-key($curr_color, $type) {
+      @return map-get($curr_color, $type);
+    }
+  }
+  //@warn "Unknown `#{name}` in $colors.";
+  @return null;
+}

@@ -1,0 +1,134 @@
+// 11. Global
+// ==========================================================================
+
+// Media Query Ranges
+$small-screen-up: 769px !default;
+$medium-screen-up: 1101px !default;
+$large-screen-up: 1281px !default;
+$small-screen: 768px !default;
+$medium-screen: 1100px !default;
+$large-screen: 1280px !default;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$large-and-down: "only screen and (max-width : #{$large-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+
+// 12. Grid
+// ==========================================================================
+
+$num-cols: 12 !default;
+$gutter-width: 1.5rem !default;
+$element-top-margin: $gutter-width/3 !default;
+$element-bottom-margin: ($gutter-width*2)/3 !default;
+
+
+// 18. Tables
+// ==========================================================================
+
+$table-border-color: #d0d0d0 !default;
+$table-striped-color: #f2f2f2 !default;
+
+
+// 19. Toasts
+// ==========================================================================
+
+$toast-height: 48px !default;
+$toast-color: #000 !default;
+$toast-text-color: #fff !default;
+
+
+// 20. Typography
+// ==========================================================================
+
+$font: 'FilsonPro-Regular', sans-serif;
+$font2: 'FilsonPro-Medium', sans-serif;
+$font3: 'FilsonPro-Light', sans-serif;
+$glyph: 'Glyphter', sans-serif;
+//$fontSecondary: "CoreSansD45", sans-serif;
+
+$off-black: rgba(0, 0, 0, 0.87) !default;
+// Header Styles
+$h1-fontsize: 2rem !default;
+$h2-fontsize: 1.5rem !default;
+$h3-fontsize: 1.3rem !default;
+$h4-fontsize: 1.2rem !default;
+$h5-fontsize: 1.1rem !default;
+$h6-fontsize: 1rem !default;
+
+
+/*$bonitoColor: color("blue","base") !default;
+$pantanalColor: color("green","darken-1") !default;
+$campoGrandeColor: color("yellow","darken-2") !default;
+$pantanalBonitoColor: color("teal","base") !default;
+$maisDestinosColor: color("purple","base") !default;
+
+
+$bonitoGradient: @include color-gradient(xxx, xxx, "diagonal", 45deg) !default;
+$pantanalGradient: @include color-gradient(xxx, xxx, "diagonal", 45deg) !default;
+$campoGrandeGradient: @include color-gradient(xxx, xxx, "diagonal", 45deg) !default;
+$pantanalBonitoGradient: @include color-gradient(xxx, xxx, "diagonal", 45deg) !default;
+$maisDestinosGradient: @include color-gradient(xxx, xxx, "diagonal", 45deg) !default;
+*/
+
+//UTILIZADOS COMO EXTENDS
+// Z-levels
+.z-depth-0 {
+  box-shadow: none !important;
+}
+.z-depth-1 {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.08), 0 1px 5px 0 rgba(0, 0, 0, 0.06), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+.z-depth-1-half {
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 7px 0 rgba(0, 0, 0, 0.06), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+.z-depth-2 {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.08), 0 1px 10px 0 rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+.z-depth-3 {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
+}
+.z-depth-4 {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.08), 0 3px 14px 2px rgba(0, 0, 0, 0.06), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
+}
+.z-depth-5 {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.08), 0 6px 30px 5px rgba(0, 0, 0, 0.06), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+$scrollbarSize: 0px;
+
+$imgCanto: "data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2017.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%20%5B%0D%0A%09%3C%21ENTITY%20ns_flows%20%22http%3A%2F%2Fns.adobe.com%2FFlows%2F1.0%2F%22%3E%0D%0A%09%3C%21ENTITY%20ns_extend%20%22http%3A%2F%2Fns.adobe.com%2FExtensibility%2F1.0%2F%22%3E%0D%0A%09%3C%21ENTITY%20ns_ai%20%22http%3A%2F%2Fns.adobe.com%2FAdobeIllustrator%2F10.0%2F%22%3E%0D%0A%09%3C%21ENTITY%20ns_graphs%20%22http%3A%2F%2Fns.adobe.com%2FGraphs%2F1.0%2F%22%3E%0D%0A%5D%3E%0D%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Camada_1%22%20xmlns%3Ax%3D%22%26ns_extend%3B%22%20xmlns%3Ai%3D%22%26ns_ai%3B%22%20xmlns%3Agraph%3D%22%26ns_graphs%3B%22%0D%0A%09%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aa%3D%22http%3A%2F%2Fns.adobe.com%2FAdobeSVGViewerExtensions%2F3.0%2F%22%0D%0A%09%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2220px%22%20viewBox%3D%220%200%2020%2020%22%20enable-background%3D%22new%200%200%2020%2020%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M20%2C0H0v20C0%2C8.954%2C8.954%2C0%2C20%2C0z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A";
+
+$imgCantoAmarela: "data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2017.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%20%5B%0D%0A%09%3C%21ENTITY%20ns_flows%20%22http%3A%2F%2Fns.adobe.com%2FFlows%2F1.0%2F%22%3E%0D%0A%09%3C%21ENTITY%20ns_extend%20%22http%3A%2F%2Fns.adobe.com%2FExtensibility%2F1.0%2F%22%3E%0D%0A%09%3C%21ENTITY%20ns_ai%20%22http%3A%2F%2Fns.adobe.com%2FAdobeIllustrator%2F10.0%2F%22%3E%0D%0A%09%3C%21ENTITY%20ns_graphs%20%22http%3A%2F%2Fns.adobe.com%2FGraphs%2F1.0%2F%22%3E%0D%0A%5D%3E%0D%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Camada_1%22%20xmlns%3Ax%3D%22%26ns_extend%3B%22%20xmlns%3Ai%3D%22%26ns_ai%3B%22%20xmlns%3Agraph%3D%22%26ns_graphs%3B%22%0D%0A%09%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aa%3D%22http%3A%2F%2Fns.adobe.com%2FAdobeSVGViewerExtensions%2F3.0%2F%22%0D%0A%09%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2220px%22%20viewBox%3D%220%200%2020%2020%22%20enable-background%3D%22new%200%200%2020%2020%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20fill%3D%22%23FFC300%22%20d%3D%22M20%2C0H0v20C0%2C8.954%2C8.954%2C0%2C20%2C0z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A";
+
+@function imgCanto($color) {
+	$color: str-slice("#{$color}", 2, 7);
+	@return "data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2017.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%20%5B%0D%0A%09%3C%21ENTITY%20ns_flows%20%22http%3A%2F%2Fns.adobe.com%2FFlows%2F1.0%2F%22%3E%0D%0A%09%3C%21ENTITY%20ns_extend%20%22http%3A%2F%2Fns.adobe.com%2FExtensibility%2F1.0%2F%22%3E%0D%0A%09%3C%21ENTITY%20ns_ai%20%22http%3A%2F%2Fns.adobe.com%2FAdobeIllustrator%2F10.0%2F%22%3E%0D%0A%09%3C%21ENTITY%20ns_graphs%20%22http%3A%2F%2Fns.adobe.com%2FGraphs%2F1.0%2F%22%3E%0D%0A%5D%3E%0D%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Camada_1%22%20xmlns%3Ax%3D%22%26ns_extend%3B%22%20xmlns%3Ai%3D%22%26ns_ai%3B%22%20xmlns%3Agraph%3D%22%26ns_graphs%3B%22%0D%0A%09%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aa%3D%22http%3A%2F%2Fns.adobe.com%2FAdobeSVGViewerExtensions%2F3.0%2F%22%0D%0A%09%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2220px%22%20viewBox%3D%220%200%2020%2020%22%20enable-background%3D%22new%200%200%2020%2020%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20fill%3D%22%23#{$color}%22%20d%3D%22M20%2C0H0v20C0%2C8.954%2C8.954%2C0%2C20%2C0z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A";
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}

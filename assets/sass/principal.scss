@@ -1,0 +1,27 @@
+@import "basic-imports";
+     
+// Layout
+@import "principal/section.planos"; 
+@import "principal/section.vantagens";
+@import "principal/section.blog";
+@import "principal/section.contato";
+
+.swiper-banner{
+	.swiper-slide{
+		a{
+			img{
+				max-width: 100%;
+			}
+		}
+	}
+	
+	.swiper-pagination-bullets{
+		.swiper-pagination-bullet{
+			background: color("grey", "base");
+			
+			&.swiper-pagination-bullet-active{
+				background: white;
+			}
+		}
+	}
+}

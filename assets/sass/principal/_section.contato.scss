@@ -1,0 +1,100 @@
+.contato{
+	width: 1440px;
+	max-width: 90%;
+	margin: auto;
+	padding: 55px 0px 55px 0px;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	input {
+	    line-height: normal;
+	    font-size: 16px;
+	    width: 100%;
+	    border: none;
+	    border-bottom: 3px solid #333333;
+	    color: #333333;
+	    -webkit-appearance: textfield;
+	    background-color: white;
+	    -webkit-rtl-ordering: logical;
+	    cursor: text;
+	    padding: 25px 0px 1px 0px;
+	}  
+	
+	textarea {
+	    line-height: normal;
+	    font-size: 16px;
+	    width: 100%;
+	    border: none;
+	    border-bottom: 3px solid #333333;
+	    color: #333333;
+	    -webkit-appearance: textfield;
+	    background-color: white;
+	    -webkit-rtl-ordering: logical;
+	    cursor: text;
+	    padding: 25px 0px 1px 0px;
+	} 
+	
+	.contato-icon{
+		display: flex;
+	  margin-right: 10px;
+	    //margin-left: 25px;
+		font-size: 55px;
+		
+		@media #{$medium-and-down} {
+	    font-size: 30px;
+		}
+	}
+	
+	.fb{
+		margin-left: 25px;
+	}
+
+	
+	.enviar{
+		display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    margin-bottom: 35px;
+	}
+	
+	.chamada{
+		width: 70%;	
+	}
+	
+	@media #{$large-and-down}{
+		img{
+			width: 100%;
+		}
+		
+		padding: 30px 0px 0px 0px;
+	}
+	
+	@media #{$small-and-down}{
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0 !important; 
+		margin-top: 30px;
+		
+		.half-size{
+			width: 100% !important;	
+			max-width: 100%;
+			margin-bottom: 30px;
+		}
+		
+		.fb{
+			margin-left: 0px;
+		}
+		
+		.title{
+			margin-bottom: 10px;
+		}
+		
+		img{
+			width: 100%;
+			max-width: 100% !important;
+			margin-right: 0 !important;
+		}
+	}
+}
