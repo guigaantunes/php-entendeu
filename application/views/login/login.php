@@ -1,28 +1,28 @@
 <?php
     session_start();
-     if( $_GET["login"]==1){
-       echo'<script>alert("Faça login ou faça um cadastro");</script>';
-     }
-    if (isset($_SESSION['cliente']['id'])) {
+if (isset($_SESSION['cliente']['id'])) {
         echo "<script>window.location.href='/'</script>";
     }
+     if( $_GET["login"]==1){
+       echo'<script>alert("Faça login ou faça um cadastro");</script>';
+       $redirecionamento="planosespeciais";
+     }
+    else{
+      $redirecionamento="planos";
+    }
+    
     
     $classConteudo      = new Conteudo;
     $conteudoLogin     = $classConteudo->getById(9);
     $conteudoCadastro   = $classConteudo->getById(10);
-if($_GET['planos']=="vip"){
-  $escolha = "?planos=vip";
-}
-else{
-  $escolha = "";
-}
+
 ?>
 <section class="section-space">
 	<div class="contato">
 		<div class="form-box">
 			<div><?=$conteudoLogin['conteudo']?></div>
 			<a class="title text-gray text-center">Login</a>
-			<form id="form-login" method="POST" action="/ajax/ajax.login.php" data-update="true" data-redirect="/planos">
+			<form id="form-login" method="POST" action="/ajax/ajax.login.php" data-update="true" data-redirect="/<?=$redirecionamento?>">
 	    		<div class="input-field required" data-error="Informe seu email">
 	    			<input id="email" type="text" name="email" placeholder="E-mail" class="required"/>
 	    		</div>
@@ -47,7 +47,7 @@ else{
 		<div class="form-box">
 			<div><?=$conteudoCadastro['conteudo']?></div>
 			<a class="title text-gray text-center">Cadastro</a>
-			<form  class="form" id='form-cadastro' name="f1"method="POST" action="/ajax/ajax.cadastro.php" data-redirect="/minha-conta<?=$escolha?>">
+			<form  class="form" id='form-cadastro' name="f1"method="POST" action="/ajax/ajax.cadastro.php" data-redirect="/minha-conta?red=<?=$redirecionamento?>">
 	    		<div class="input-field required" data-error="Informe seu nome">
 	    			<input id="nome-cadastro" type="text" name="dados[nome]" placeholder="Nome *" class="required"/>
 	    		</div>

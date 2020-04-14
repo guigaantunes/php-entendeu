@@ -72,8 +72,8 @@
     if($_GET['debug']){
       var_dump($cliente);
     }
-if($_GET['planos']=="vip"){
-  $escolha = "planos";
+if($_GET['red']=="planosespeciais"){
+  $escolha = "planosespeciais";
 }
 else{
   $escolha = "planos";
@@ -97,7 +97,7 @@ else{
 	<div class="minha-conta">
 		<div class="form-box">
 			<a class="title text-gray text-center">Minha conta <i class="icon-crown big-icon text-orange"></i> </a>
-			<form  class="form" action="/admin/public/modules/cliente/ajax.php" method="POST" id='form-login' data-redirect="/<? echo $escolha;?>">
+			<form  class="form" action="/admin/public/modules/cliente/ajax.php" method="POST" id='form-login' data-redirect="/<?=$escolha?>">
     			<input type="hidden" name="acao" value="editar">
     			<input type="hidden" name="id" value="<?=$id?>">
 <!--     			<input type="hidden" name="dados[vip]" value="<?=$cliente['vip']?>"> -->
@@ -128,7 +128,10 @@ else{
 	    		<div class="input-field required" data-error="Informe seu endereço">
 	    			<input id="endereco" type="text" data-cep="street" name="dados[endereco]" placeholder="Endereço" class="required" value="<?=$cliente['endereco']?>" required />
 	    		</div>
-	    		<div class="input-field required" data-error="Informe seu endereço">
+          <div class="input-field required" data-error="Informe seu Bairro">
+	    			<input id="endereco" type="text" data-cep="district" name="dados[bairro]" placeholder="Bairro" class="required" value="<?=$cliente['bairro']?>" required />
+	    		</div>
+	    		<div class="input-field required" data-error="Informe o numero">
 	    			<input id="numero" type="number" min="1" name="dados[numero]" placeholder="Número" class="required" value="<?=$cliente['numero']?>" required />
 	    		</div>
 	    		<div class="input-field required" data-error="Informe sua senha">

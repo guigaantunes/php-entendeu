@@ -57,6 +57,21 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+  .banner {
+  width: 100vw;
+  height: 39vw;
+  background-image:url("application/views/principal/banner.jpeg");
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%;
+}
+  .centro{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: auto;
+    
+  }
+
 </style>
 <?php
     $classConfiguracao   = new Configuracao;
@@ -99,17 +114,23 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
 <script src="/assets/js/pages/planoiugu.js"></script>
 <script src="/assets/js/pages/planos.js"></script>
 <section class="menor" >
-		<div class="left " width="100%"   style="padding:20px;width:100%;background-size: 100% 100%;">
-		    <div  style="z-index:2;width:50%;color:white;float:left;display:block;text-size-adjust: auto;<?if($styless){echo"padding-top:100px;padding-bottom:100px;padding-left:100px;padding-right:100px;";}?>">
-		        <h1 style="font-size:2em;font-weight: bold" >Aprenda tudo sobre conteúdo jurídico em minutos</h1>
-		        <p style="font-size:1em;">Potencialize seu ensino e aprenda 45% mais com o nosso material ilustrativo que fala do jeito que você entende</p>
-		        <a style="font-size:1em"class="btn green btn-small green-hover" href="/materiais" >COMECE AGORA</a>
-		    </div> 
-      <br>
-      <div  style="z-index:2;width:50%;float:right;color:white;display:block;text-size-adjust: auto;">
-		        <?if($styless){?><img style="width:50%"class="center"src="https://www.entendeudireito.com.br/application/views/principal/Books1.png"><?;}?>
-		    </div> 
-		</div>
+		<?if($styless){?>
+    <div class="banner centro">
+      <div style="margin-left:10vw">
+        
+        <h1 style="font-size:3vw;font-weight: bold;width:50%" >Aprenda tudo sobre conteúdo jurídico em minutos</h1>
+		        <p style="font-size:1.5vw;width:50%">Potencialize seu ensino e aprenda 45% mais com o nosso material ilustrativo que fala do jeito que você entende</p>
+		        <a style="font-size:1vw;"class="btn green btn-small green-hover" href="/materiais" >COMECE AGORA</a>
+      </div>
+    </div><?}else{?>
+  <div class="centro" style="background-color:#f5e8b1;padding-bottom:10vw;">
+      <div class="text-center">
+        
+        <h1 style="font-size:10vw;font-weight: bold;width:100%" >Aprenda tudo sobre conteúdo jurídico em minutos</h1>
+		        <p style="font-size:5vw;width:100%">Potencialize seu ensino e aprenda 45% mais com o nosso material ilustrativo que fala do jeito que você entende</p>
+		        <a style="font-size:5vw;"class="center btn green btn-small green-hover" href="/materiais" >COMECE AGORA</a>
+      </div>
+    </div><?}?>
 </section>
 <section style="padding:0px;background-image: linear-gradient(180deg, #fd7e15 0%, #fc7100 100%);"class="section-space " >
         <div class="plans "style="font-size:20px;color:white;padding:1px;width:85%">

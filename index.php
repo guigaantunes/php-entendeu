@@ -1,7 +1,6 @@
 <?php	
 	error_reporting(0);
 	session_start();
-	//var_dump($_SESSION);
 	require_once("config.php");
 	require_once(PATH_ABSOLUTO."classes/func.gerais.php");
 	require_once(PATH_ABSOLUTO."classes/func.banco.php");
