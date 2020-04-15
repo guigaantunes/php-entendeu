@@ -1,10 +1,6 @@
 <?php
 
-    require_once( "/var/www/html/application/controller/Signoweb.php");
-    require_once( "/var/www/html/application/controller/MaterialEstudo.php");
-    require_once( "/var/www/html/application/controller/Disciplina.php");
-    require_once( "/var/www/html/application/controller/Materia.php");
-    require_once( "/var/www/html/application/controller/ClienteLeuMaterial.php");
+    
     $classMaterialEstudo= new MaterialEstudo;
     $classDisciplina    = new Disciplina;   
     $classMateria       = new Materia;
@@ -28,12 +24,15 @@
 	$busca = $_GET['busca']; 
 	//echo "<pre>".print_r($this->idTopico, true);
 ?>
-
-<div class="search-items">
+	<form id="busca-topo" method="get" action="/resultado-pesquisa" class="custom">
+		<div class="search-form">
+	    	<input type="text" placeholder="Buscar..." name="busca" class="search small-space" type="busca" value=""/>
+		</div>
+	</form>	
+<!--<div class="search-items">
 	<input autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" type="text" placeholder="Buscar..." class="search small-space" value="<?=$busca?>"/>
 	<i class="icon-search search-topico"></i> 
-</div>
-
+</div>-->
 <div class="toggle-menu">
     <a class="title-menu"><?php $id_toggle = explode("/", $_SERVER['REQUEST_URI']);
 	                            foreach($disciplinas as $i => $disciplina):

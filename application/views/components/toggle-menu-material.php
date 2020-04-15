@@ -20,7 +20,7 @@
     
     //$url = $_SERVER['REQUEST_URI'];
 	$busca = $_GET['busca']; 
-	//echo "<pre>".print_r($this->idTopico, true);
+
 ?>
 
 <div class="search-items">
@@ -29,11 +29,11 @@
 </div>
 
 <div class="toggle-menu">
-	<a class="title-menu">Direito Administrativo</a>	
+	<a class="title-menu">Procurar por categoria</a>	
 	<div class="dropdown">
             <ul class="lista-menu">
                 <?foreach($disciplinas as $i => $disciplina):?>
-                    <li class="item-first-level" data-id="<?=$disciplina['id']?>">
+                    <li class="item-first-level">
                         <a class="first-level" href="javascript:void(0)"><?=$disciplina['titulo']?>
                         	<i class="icon-arrow btn-icon"></i>
                         </a>
@@ -55,10 +55,10 @@
                                 foreach($materias as $j => $materia):
                             ?>
                             
-                                <li class="item-second-level" data-id="<?=$materia['id']?>"><a class="option-second-level" href="javascript:void(0)"><?=$materia['titulo']?></a>
+                                <li class="item-second-level"><a class="option-second-level" href="javascript:void(0)"><?=$materia['titulo']?></a>
                                 	<ul class="third-level" href="javascript:void(0)"> 
                                     	<?php
-                                            $materiais2 = $classMaterialEstudo->getBy(
+                                            $materiais = $classMaterialEstudo->getBy(
                                                 $dados  = array(
                                                     'materialestudo.status' => 1,
                                                     'materialestudo.id_materia' => $materia['id']
@@ -75,14 +75,14 @@
 								                ),
                                                 $groupBy= false,
                                                 $having = false,
-                                                $orderBy= 'ordem ASC, titulo ASC, id ASC'
+                                                $orderBy= 'titulo ASC'
                                             );
                                             
-                                            foreach($materiais2 as $k => $material):
+                                            foreach($materiais as $k => $material):
                                                 $leu = $classLeu->materialLido($material['id']);
                                             ?>
                                                 <li class="material-estudo">
-                                                	<a href="<?=($material['destino']) ? URL_SITE.$material['destino'] : URL_SITE.'topico/'.$material['id']?>/<?=$materia['id']?>/<?=$disciplina['id']?>/<?=tituloEmURL($material['titulo'])?>"><?=($this->idTopico["topico"] == $material['id'] ? '<i style="vertical-align: sub;" class="material-icons">keyboard_arrow_right</i>' : '<i style="vertical-align: sub;" class="material-icons">keyboard_arrow_down</i>')?><?=$material['titulo']?></a>
+                                                	<a href="<?=($material['destino']) ? URL_SITE.$material['destino'] : URL_SITE.'topico/'.$material['id']?>"><?=$material['titulo']?></a>
                                                 	<?if($leu):?><i class="icon-check check-icon"></i><?endif;?>
                                                 </li>
                                             <?endforeach;?>
@@ -103,11 +103,5 @@
 <?php 
 	include(PATH_ABSOLUTO."includes/assetsPage.php");
 	$stylesPage = '<link href="'.URL_SITE.'assets/css/toggle-menu.css" type="text/css" rel="stylesheet" media="screen"/>';
- 	$scriptPage = '<script src="'.URL_SITE.'assets/js/components/toggle-menu.js?'.time().'"></script>';
- 	
- 	if ($this->idTopico["topico"] != "") {
-	 	?><script>$(document).ready(function(){ setTimeout(function() { openMenu('<?=$this->idTopico["disciplina"]?>','<?=$this->idTopico["materia"]?>','<?=$this->idTopico["topico"]?>'); }, 1000) });</script><?
- 	} else {
-	 	?><script>$(document).ready(function(){ setTimeout(function() { openMenu('','','');}, 1000) });</script><?
- 	}
+ 	$scriptPage = '<script src="'.URL_SITE.'assets/js/components/toggle-menu.js"></script>';
 ?>
