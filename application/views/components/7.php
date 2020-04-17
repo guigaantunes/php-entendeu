@@ -1,5 +1,5 @@
 <?php
-
+    
     
     $classMaterialEstudo= new MaterialEstudo;
     $classDisciplina    = new Disciplina;   
@@ -133,7 +133,9 @@
                                             
                                             foreach($materiais2 as $k => $material):
                                                 $leu = $classLeu->materialLido($material['id']);
+                                                
                                                if($materia['id']==$id_toggle[3]){
+                                                
                                             ?>
                                                 <li style="z-index:1;"class="item-second-level">
                                                 	<p style="max-width: 20ch;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;<?if($leu):?>color:#59DE1B !important;<?else:?>color:white;<?endif;?>"><a style="<?if($leu):?>color:#59DE1B !important;<?else:?><?endif;?>"href="<?=($material['destino']) ? URL_SITE.$material['destino'] : URL_SITE.'topico/'.$material['id']?>/<?=$materia['id']?>/<?=$disciplina['id']?>/<?=tituloEmURL($material['titulo'])?>"><?=($this->idTopico["topico"] == $material['id'] ? '<i style="vertical-align: sub;" class="material-icons">radio_button_checked</i>' : '<i style="vertical-align: sub;" class="material-icons">radio_button_unchecked</i>')?><?=$material['titulo']?></a></p>
@@ -157,7 +159,7 @@
 <?php 
 	include(PATH_ABSOLUTO."includes/assetsPage.php");
 	$stylesPage = '<link href="'.URL_SITE.'assets/css/toggle-menu.css" type="text/css" rel="stylesheet" media="screen"/>';
- 	$scriptPage = '<script src="'.URL_SITE.'assets/js/components/toggle-menu.js?'.time().'"></script>';
+ 	//$scriptPage = '<script src="'.URL_SITE.'assets/js/components/toggle-menu.js?'.time().'"></script>';
  	
  	if ($this->idTopico["topico"] != "") {
 	 	?><script>$(document).ready(function(){ setTimeout(function() { openMenu('<?=$this->idTopico["disciplina"]?>','<?=$this->idTopico["materia"]?>','<?=$this->idTopico["topico"]?>'); }, 1000) });</script><?

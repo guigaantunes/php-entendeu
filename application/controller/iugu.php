@@ -129,9 +129,9 @@ class Iugu
         $vip = $dados['vip'];*/
         $classCliente = new Cliente;
         $cliente      = $classCliente->getById($id);
-        if ($vip == 1) {
+        if ($vip == 0) {
             $plano = "plano_basico";
-        } elseif ($vip == 0) {
+        } elseif ($vip == 1) {
             $plano = "plano_entendeu";
         } elseif ($vip == 2) {
             $plano = "plano_oab";
@@ -268,9 +268,9 @@ class Iugu
     {
         $classCliente = new Cliente;
         $cliente      = $classCliente->getById($id);
-        if ($vip == 1) {
+        if ($vip == 0) {
             $plano = "plano_basico";
-        } elseif ($vip == 0) {
+        } elseif ($vip == 1) {
             $plano = "plano_entendeu";
         } elseif ($vip == 2) {
             $plano = "plano_oab";

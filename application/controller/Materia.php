@@ -19,6 +19,29 @@
     	    
 
     	    return $ordem + 1;
-	    }
+		}
+		public function getTitulos($palavra){
+			$sql = "
+				SELECT * 
+				FROM materia 
+				WHERE titulo 
+				LIKE '%".$palavra."%' && 
+				status = 1 &&
+				id_disciplina = 1
+			"	;
+    	    
+            return $this->run($sql, array());
+		}
+		public function materialDemonstrativo($id){
+			$sql = "
+				SELECT * 
+				FROM materialestudo 
+				WHERE id_materia = $id && 
+				status = 1 &&
+				demonstrativo = 1
+			"	;
+    	    
+            return $this->run($sql, array());
+		}
 	}
 ?>

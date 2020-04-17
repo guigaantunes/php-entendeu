@@ -29,6 +29,16 @@
     	    
             return $this->run($sql, array());
 		}
+		public function getTitulos($texto){
+			$sql = "
+				SELECT * 
+				FROM materialestudo 
+				WHERE titulo LIKE '%".$texto."%'
+				&& status = 1
+			"	;
+    	    
+            return $this->run($sql, array());
+		}
 		
 		public function ajustarOrdem($id, $ordem, $materia) {
 			$sql = "select * from materialestudo where id_materia = ".$materia." AND ordem = ".$ordem." AND id <> ".$id;

@@ -186,16 +186,6 @@ elseif ($_SESSION['cliente']['id']):
                     <p>Assine já para ter acesso ao maior portal jurídico do Brasil</p>
                     <a class="btn orange area-do-assinante orange-hover " style="padding-bottom:0px" href="https://www.entendeudireito.com.br/planos">Assinar</a>
             </div>
-                    
-            <script>
-                $( document ).ready(function() {
-                     setTimeout(carregar, 1000);
-                });
-                
-                function carregar() {
-                    $('#popuplead').show();
-                }
-            </script>
             <?
 else:
 ?>
@@ -226,15 +216,7 @@ else:
                     <a class="btn orange orange-hover" style="padding-bottom:0px"href="https://www.entendeudireito.com.br/login">Cadastre-se</a>
                 
             </div>
-            <script>
-                $( document ).ready(function() {
-                     setTimeout(carregar, 1000);
-                });
-                
-                function carregar() {
-                    $('#popuplead').show();
-                }
-            </script>
+        
              <?php
 endif;
 ?>

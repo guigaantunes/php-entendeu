@@ -1,97 +1,95 @@
 <?php
+if(!$_SERVER["REMOTE_ADDR"]=="177.83.19.24"){
+	die();
+}
+//echo $_SERVER["REMOTE_ADDR"];
     //$Pagseguro          = new Pagseguro;
-    
-    $class              = new MaterialEstudo;
-    $classLido          = new ClienteLeuMaterial;
-    $classAssinatura    = new Assinatura;
-    
-    $id = $this->parametros[1];
-    $conteudo = $class->getById($id);
-    
-    $imagem = $class->getImages($id);
-    $imagem = end($imagem);
-    
-    $arquivo = $class->getFiles($id);
-    $arquivo = end($arquivo);
-    
-    $conteudoLido = $classLido->materialLido($id);
-	$video = $conteudo['video'];
-	$idVideo = soNumero($video);
-	$html = '<iframe width="900" height="300" src="https://player.vimeo.com/video/'.$idVideo.'"frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-	$assinatura = $classAssinatura->getAssinatura();
+	$classMaterialEstudo= new MaterialEstudo;
+	$classMateria =  new Materia;
+	$buscaMateria = $classMateria->getTitulos($_GET["busca"]);
+	$buscaMaterialEstudo = $classMaterialEstudo->getTitulos($_GET["busca"]);
+	if(count($buscaMaterialEstudo) <= 0 && count($buscaMateria) <= 0){
+		$mostrar["materia"] =  false;
+		$mostrar["topico"] =  false;
+	}
+	else if(count($buscaMaterialEstudo) >= 0 && count($buscaMateria) <= 0){
+		$mostrar["topico"] =  true;
+		$mostrar["materia"] =  false;
+	}
+	else if(count($buscaMaterialEstudo) <= 0 && count($buscaMateria) >= 0){
+		$mostrar["materia"] =  true;
+		$mostrar["topico"] =  false;
+	}
+	else{
+		$mostrar["materia"] =  true;
+		$mostrar["topico"] =  true;
+	}
+	$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+	$ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
+	$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+	$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+	$berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+	$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+	$symbian =  strpos($_SERVER['HTTP_USER_AGENT'],"Symbian");
 	
-	
-	//$Pagseguro->getPlanInfo();
-	//$Pagseguro->createPlan();
-
+	if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
+		$styless="";
+	} else {
+		$styless="all-content";
+	}
 ?>
-
+<link href="<?=URL_SITE?>assets/css/topico.css" type="text/css" rel="stylesheet" media="screen"/>
+<script src="<?=URL_SITE?>/assets/js/pages/materias.js?data=<?=date('YmdHis')?>"></script>
 <section class="center navigation">
 	<div class="menor navigation-bar text-left">
-		<a class="page-name">Tópico</a>
+		<a class="page-name">Busca</a>
 		<a class="page-name nav-separator"> | </a>
 		<div class="page-path"> 
 			<a href="/" class="select-hover">Home</a> > 
 			<a href="/materiais" class="select-hover">Materiais</a> > 
-			<a class="select-hover">Tópico</a> 
+			<a class="select-hover">Busca</a> 
 		</div>
 	</div>
 </section>
 
-<section class="big-spaces-top">
+<section class="">
     <script src="<?=URL_SITE?>assets/js/pages/materialestudo.js?d=<?=date('YmdHis')?>"></script>
-	<div class="all-content">
-		<div class="side-column">
-    		<?if( isset($_SESSION['cliente']['id']) ):?>
-    			<!--
-        		<form >
-            		<input type="hidden" id="id" value="<?=$id?>">
-        			<div class="cards">
-        	    		<div class="radio-option small-space">
-        		    		<label class="container">
-                                <input id="estudado" type="checkbox" name="estudado" <?=($conteudoLido ? 'checked' : '')?> >
-                                <span class="checkmark"></span>
-                                <a class="study-mark">CONTEÚDO <?=(!$conteudoLido ? 'NÃO' : '')?> ESTUDADO</a>
-        					</label>
-        	    		</div>
-        			</div>
-        		</form>
-        		!-->
-    		<?endif;?>
+	<div class="<?=$styless?>">
+		
+		<?if($mostrar ["materia"]){?>
 			
-			<?php
-    			
-				include_once(PATH_ABSOLUTO."application/views/components/toggle-menu-material.php");
-			?>	
-			
-		</div>
 		<div class="topico">
-			<?if( isset($_SESSION['cliente']['id']) ):?>
-				<a class="topico-title text-gray"><?=$conteudo['titulo']?></a>
-				<img class="topico-img" src="<?=$imagem['g']?>" alt="" />
-				<p class="content-terms"><?=$conteudo['conteudo']?></p>
-			<?else:?>
-				<a class="topico-title conteudo-amostra"><?=$conteudo['titulo']?></a>
-				<img class="topico-img" src="<?=$imagem['g']?>" alt="" />
-				<p class="content-terms">Os conteúdos disponibilizados nessa página não estão completos por ser uma versão apenas de teste para usuários que ainda não adquiriram um de nossos planos.</p>
-			<?endif;?>
-			<?php
-				if($video && $assinatura['vip'] && $classAssinatura->assinaturaAtiva()):
-			?>
-			 <div class="embed"><?=$html?></div>
-			 <?php
-				 endif;
-			 ?>
-		<a class="back-link text-orange" href="<?=URL_SITE?>materiais"> ⬅ Voltar para Lista de Tópicos</a>
+			<h1>Materias</h1>
+			<?foreach($buscaMateria as $i => $materia):?>
+				<div class="center no-margin" style="float:left">
+        			<img src="<?=URL_SITE?>application/views/materiais/<?echo str_replace(" ","", $materia['titulo'],$semespaco);?>.png" width="" height="54px" style="border-radius:12px;padding-right:20px"></img>
+    				<a data-id-topico="<?=$materia['id']?>" style ="border-left-width: 0px;position:relative;top:5px;left:-20px;width: 200px; border-top-left-radius:0px !important;border-bottom-left-radius:0px !important;height:54px;font-size:1rem;"class="btn-orange-empty btn" href=""><?=$materia['titulo']?></a>
+    			</div>
+			<?endforeach;
+			
+		}?>
 		</div>
-		<div class="side-column column-2">
-			<div class="print-items">
-    			
-				<?if( isset($_SESSION['cliente']['id']) && $arquivo && $classAssinatura->assinaturaAtiva()):?>
-					<img class="print" src="<?=URL_SITE?>assets/images/print.svg" alt="" />
-					<a href="#" data-file-id="<?=$arquivo['id']?>" class="text-print">Clique <br>para<br>imprimir</a>
-				<?endif;?>
+		<?if($mostrar ["topico"]){?>
+
+		<div class="topico <?if($mostrar["materia"]==false){echo "center";}?>">
+			<h1>Topicos</h1>
+			
+			<?foreach($buscaMaterialEstudo as $i => $conteudo):?>
+			<div style="padding:0px" class="topico ">
+			<a  class=" text-left link-topico" href="<?=URL_SITE."topico/".$conteudo["id"]."/".$conteudo["id_materia"]."/"."1/".tituloEmURL($conteudo["titulo"])?>"><i style="margin-right:1rem;font-size:1.2rem;vertical-align: sub;" class="material-icons">radio_button_unchecked</i><?=$conteudo["titulo"]?></a>
 			</div>
+		
+			<?endforeach;
+		}?>
+		</div>
+		<?
+		if($mostrar ["materia"]==false && $mostrar ["topico"]==false){?>
+			<h1>Não achamos nem um mapa mental<h1>
+			<p>Gostaria de sugerir algum topico?</p>
+			<p>Entre em contato pelo chat<p>	
+		<?}?>
+
+			
 		</div>
 	</div>
 </section>

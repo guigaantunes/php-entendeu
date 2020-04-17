@@ -103,5 +103,5 @@
 <?php 
 	include(PATH_ABSOLUTO."includes/assetsPage.php");
 	$stylesPage = '<link href="'.URL_SITE.'assets/css/toggle-menu.css" type="text/css" rel="stylesheet" media="screen"/>';
- 	$scriptPage = '<script src="'.URL_SITE.'assets/js/components/toggle-menu.js"></script>';
+ 	//$scriptPage = '<script src="'.URL_SITE.'assets/js/components/toggle-menu.js"></script>';
 ?>
