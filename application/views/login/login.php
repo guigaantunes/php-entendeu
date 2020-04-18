@@ -43,7 +43,6 @@ if (isset($_SESSION['cliente']['id'])) {
             
 			
 		</div>
-		
 		<div class="form-box">
 			<div><?=$conteudoCadastro['conteudo']?></div>
 			<a class="title text-gray text-center">Cadastro</a>

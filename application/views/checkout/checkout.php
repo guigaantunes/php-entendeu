@@ -1,4 +1,8 @@
-<?  if ( !isset($_SESSION['cliente']['id']) ) {
+<?  
+    if ( !isset($_SESSION['cliente']['id']) ) {
+      if($_GET['vip']==2 || $_GET['vip'==2]){
+        echo "<script>window.location.href = '/login?login=1'</script>";
+      }
         echo "<script>window.location.href = '/login?planos=vip'</script>";
     }
 
