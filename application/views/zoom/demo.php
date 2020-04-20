@@ -2,14 +2,9 @@
 	<style>
 		
 		/* these styles are for the demo, but are not required for the plugin */
-		.zoom {
-			display:inline-block;
-			position: relative;
-		}
-		
+	
 		/* magnifying glass icon */
 		.zoom:after {
-			content:'';
 			display:block; 
 			width:33px; 
 			height:33px; 
@@ -19,9 +14,6 @@
 			background:url(icon.png);
 		}
 
-		.zoom img {
-			display: block;
-		}
 
 		.zoom img::selection { background-color: transparent; }
 
@@ -35,19 +27,12 @@
 	<script src='<?=URL_SITE."/application/views/zoom/"?>jquery.zoom.js'></script>
 	<script>
 		$(document).ready(function(){
-			$('#ex1').zoom();
-			$('#ex2').zoom({ on:'grab' });
-			$('#ex3').zoom({ on:'click' });			 
-			$('#ex4').zoom({ on:'toggle' });
+			$('#ex3').zoom({ on:'click' });
 		});
 	</script>
 
-	<span class='zoom' id='ex1'>
-		<h1>Passar</h1>
-		<img src='<?=URL_SITE."/application/views/zoom/"?>daisy.png' width='600' height='776,46' alt='Daisy on the Ohoopee'/>
-	</span>
-	<span class='zoom' id='ex3'>
+	<div class='zoom' id='ex3'>
 		<h1>Clicar</h1>
 		<img src='<?=URL_SITE."/application/views/zoom/"?>daisy.png' width='600' height='776,46'alt='Daisy on the Ohoopee'/>
-	</span>
+	</div>
 
