@@ -28,10 +28,11 @@ $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
   </script>
 
   </head>
-<section class="tiny-size section-space all-content center" style="<? if(!$cel){ echo " width:320px ";} ?>" >
-	<div>
+<section class="section-space all-content center">
+	<div class="text-center"style="width:70vw;word-spacing: 2px;line-height:4vh;"> 
 		<h1 class="title text-gray">Como funciona?</h1>
-		<p style="font-size:2vh"class="">Nós trabalharmos com um plano de assinatura, por isso, todo mês o valor é debitado da sua conta, para você não precisar ir ao nosso site e realizar a compra novamente. Você pode CANCELAR QUANDO QUISER e sem pagar taxas. Você pode assinar por 1 mês apenas (informando pelo chat). Por isso, assim que não utilizar mais os nossos serviços, solicite o cancelamento. Visto que, depois que o pagamento é realizado, não é possível fazer o estorno.</div>
+		<p style="font-size:2vh"class=" center">Nós trabalharmos com um plano de assinatura, por isso, todo mês o valor é debitado da sua conta, para você não precisar ir ao nosso site e realizar a compra novamente. Você pode CANCELAR QUANDO QUISER e sem pagar taxas. Você pode assinar por 1 mês apenas (informando pelo chat). Por isso, assim que não utilizar mais os nossos serviços, solicite o cancelamento. Visto que, depois que o pagamento é realizado, não é possível fazer o estorno.</div>
+    </div>
 </section>
   <body translate="no">
     <div class="pricing-container">
@@ -57,11 +58,12 @@ $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
               <div class="pricing-body">
                 <ul class="pricing-features">
                   <li> 1 mês de acesso;</li>
+                  <li> (Renovado Automáticamente)</li>
                   <li> Acesso a mais de 1500 mapas mentais </li>
                     <li>sem opção de impressão;</li>
                   <li> Conteúdo novo toda semana;</li>
                   <li> Suporte via whatsapp;</li>
-                  <li style="color:white"> only</li>
+                  
                 </ul>
               </div>
               <footer class="pricing-footer"> <a class="select" href="https://www.entendeudireito.com.br/checkout?vip=0">Assine</a> </footer>
@@ -100,11 +102,11 @@ $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
               <div class="pricing-body">
                 <ul class="pricing-features">
                   <li> 1 mês de acesso;</li>
+                  <li> (Renovado Automáticamente)</li>
                   <li> Acesso a mais de 1500 mapas mentais;</li>
                   <li> Conteúdo novo toda semana;</li>
                   <li> Impressões ilimitadas;</li>
                   <li> Suporte via whatsapp;</li>
-                  <li style="color:white"> only</li>
                 </ul>
               </div>
               <footer class="pricing-footer"> <a class="select" href="https://www.entendeudireito.com.br/checkout?vip=1">Assine</a> </footer>
