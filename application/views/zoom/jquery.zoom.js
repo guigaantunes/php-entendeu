@@ -94,8 +94,7 @@
 			mousemove = 'mousemove.zoom',
 			clicked = false,
 			touched = false;
-
-			// If a url wasn't specified, look for an image element.
+			
 			if (!settings.url) {
 				var srcElement = source.querySelector('img');
 				if (srcElement) {
@@ -225,7 +224,11 @@
 					settings.callback.call(img);
 				}
 			};
+			$source = $(source)
+			if(settings.url){
 
+			}
+			
 			img.setAttribute('role', 'presentation');
 			img.alt = '';
 			img.src = settings.url;

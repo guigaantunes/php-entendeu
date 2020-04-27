@@ -35,10 +35,6 @@ $assinatura = $classAssinatura->getAssinatura();
 
 
 
-if ($_REQUEST['teste'] == 'sim') {
-    $teste1 = $classAssinatura->temAcessoBasico(709);
-    echo "<pre>Cliente 709 => " . print_r($teste1, true);
-}
 if (isset($cliente["data1ano"]) && $cliente["data1ano"] != "0000-00-00") {
     if (strtotime($cliente["data1ano"]) >= strtotime(date("Y-m-d"))) {
         $liberado1ano = true;
@@ -140,7 +136,7 @@ if ($conteudo['demonstrativo'] || $classAssinatura->temAcessoBasico() || $libera
                <a class="topico-title text-gray"><?= $conteudo['titulo'] ?></a>
 <!--                 <img class="topico-img" src="<?= $imagem['g'] ?>" alt="" /> -->
                 <div class="img-dinamic">                    
-                    <img class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'] ?>" alt=""/>
+                    <img class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'].'?'.date("YmdHis") ?>" alt=""/>
                 </div>
                 <div class="media">
                     <ul class="slide">
@@ -148,7 +144,7 @@ if ($conteudo['demonstrativo'] || $classAssinatura->temAcessoBasico() || $libera
     foreach ($imagem as $img):
 ?>
                            <li class="item-slide">
-                                <img src="<?= $img['g'] ?>" alt="" />
+                                <img src="<?= $img['g'].'?'.date("YmdHis") ?>" alt="" />
                             </li>
                         <?
     endforeach;
@@ -163,7 +159,7 @@ elseif ($_SESSION['cliente']['id']):
             <a class="topico-title text-gray"><?= $conteudo['titulo'] ?></a>
 <!--                 <img class="topico-img" src="<?= $imagem['g'] ?>" alt="" /> -->
                 <div class="img-dinamic">                    
-                    <img style="-webkit-filter: blur(20px);" class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'] ?>" alt=""/>
+                    <img style="-webkit-filter: blur(20px);" class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'].'?'.date("YmdHis") ?>" alt=""/>
                 </div>
                 <div class="media">
                     <ul class="slide">
@@ -171,7 +167,7 @@ elseif ($_SESSION['cliente']['id']):
     foreach ($imagem as $img):
 ?>
                            <li class="item-slide">
-                                <img style="-webkit-filter: blur(20px);"src="<?= $img['g'] ?>" alt="" />
+                                <img style="-webkit-filter: blur(20px);"src="<?= $img['g'].'?'.date("YmdHis") ?>" alt="" />
                             </li>
                         <?
     endforeach;
@@ -193,7 +189,7 @@ else:
             <a class="topico-title text-gray"><?= $conteudo['titulo'] ?></a>
 <!--                 <img class="topico-img" src="<?= $imagem['g'] ?>" alt="" /> -->
                 <div class="img-dinamic">                    
-                    <img style="-webkit-filter: blur(20px);" class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'] ?>" alt=""/>
+                    <img style="-webkit-filter: blur(20px);" class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'].'?='.date("YmdHis") ?>" alt=""/>
                 </div>
                 <div class="media">
                     <ul class="slide">
@@ -201,7 +197,7 @@ else:
     foreach ($imagem as $img):
 ?>
                            <li class="item-slide">
-                                <img style="-webkit-filter: blur(20px);"src="<?= $img['g'] ?>" alt="" />
+                                <img style="-webkit-filter: blur(20px);"src="<?= $img['g'].'?'.date("YmdHis") ?>" alt="" />
                             </li>
                         <?
     endforeach;

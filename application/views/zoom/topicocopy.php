@@ -53,46 +53,35 @@ if (isset($cliente["data1ano"]) && $cliente["data1ano"] != "0000-00-00") {
     echo $vip1ano;
 }
 
+$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
+$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+$berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+$symbian =  strpos($_SERVER['HTTP_USER_AGENT'],"Symbian");
 
+if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
+    $styless='';
+} else {
+    
+    $styless='ex3';
+    
+}
 
 
 //echo "1".$_SESSION['cliente']['id'];
 ?>
 <body>
-
-
-<style>
-		
-		/* these styles are for the demo, but are not required for the plugin */
-		.zoom {
-			display:inline-block;
-			position: relative;
-		}
-		
-		/* magnifying glass icon */
-		.zoom:after {
-			content:'';
-			display:block; 
-			width:33px; 
-			height:33px; 
-			position:absolute; 
-			top:0;
-			right:0;
-			background:url(icon.png);
-		}
-
-		.zoom img {
-			display: block;
-		}
-
-		.zoom img::selection { background-color: transparent; }
-
-		#ex2 img:hover { cursor: url(grab.cur), default; }
-		#ex2 img:active { cursor: url(grabbed.cur), default; }
-		.img{
-			align-content: center;
-		}
-	</style>
+<script>
+function click() {
+if (event.button==2||event.button==3) {
+oncontextmenu='return false';
+}
+}
+document.onmousedown=click
+document.oncontextmenu = new Function("return false;")
+</script>
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 	<script src='<?=URL_SITE."/application/views/zoom/"?>jquery.zoom.js'></script>
 	<script>
@@ -111,7 +100,7 @@ if (isset($cliente["data1ano"]) && $cliente["data1ano"] != "0000-00-00") {
             position:fixed;
             display:flex;
             justify-content: center;
-            /*cursor: pointer;*/
+            cursor: pointer;
             align-items: center;
             width:60px;
             height:60px;
@@ -145,11 +134,35 @@ if (isset($cliente["data1ano"]) && $cliente["data1ano"] != "0000-00-00") {
         </div>
     </div>
 </section>
-
+<section style="margin: 0 auto;max-width: 1440px;width: 95%;">
+   
+    
+<div style="float:right !important;"class="print-items">
+    
+                <?
+if ($arquivo && $classAssinatura->temAcessoVip() || $acesso == 2):
+?>
+                   <a href="#" data-file-id="<?= $arquivo['id'] ?>" class="text-print"><img  class="print" src="<?= URL_SITE ?>assets/images/print.svg" alt="" />
+                    <br />Clique <br>para<br>imprimir</a>
+                <?
+elseif ($vip1ano == 1):
+?>
+            <a href="#" data-file-id="<?= $arquivo['id'] ?>" class="text-print"><img  class="print" src="<?= URL_SITE ?>assets/images/print.svg" alt="" />
+                    <br />Clique <br>para<br>imprimir</a>
+             <?
+endif;
+?>
+           
+    </div>
+</section>            
 <section class="big-spaces-top">
+
     <script src="<?= URL_SITE ?>assets/js/pages/materialestudo.js?d=<?= date('YmdHis') ?>"></script>
+   
     <div class="container">
+    
         <div class="side-column">
+        
             <?
 if (isset($_SESSION['cliente']['id'])):
 ?>
@@ -165,6 +178,7 @@ if (isset($_SESSION['cliente']['id'])):
                         </div>
                     </div>
                 </form>
+                
             <?
 endif;
 ?>
@@ -184,8 +198,9 @@ if ($conteudo['demonstrativo'] || $classAssinatura->temAcessoBasico() || $libera
 ?>
                <a class="topico-title text-gray"><?= $conteudo['titulo'] ?></a>
 <!--                 <img class="topico-img" src="<?= $imagem['g'] ?>" alt="" /> -->
-                <div class="img-dinamic zoom"id="ex3">                    
+                <div class="img-dinamic" id="<?=$styless?>">                    
                     <img class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'] ?>" alt=""/>
+                    
                 </div>
                 <div class="media">
                     <ul class="slide">
@@ -271,24 +286,7 @@ endif;
                 </i>
             </a>
         </div>
-        <div class="side-column column-2">
-            <div class="print-items">
-    
-                <?
-if ($arquivo && $classAssinatura->temAcessoVip() || $acesso == 2):
-?>
-                   <a href="#" data-file-id="<?= $arquivo['id'] ?>" class="text-print"><img  class="print" src="<?= URL_SITE ?>assets/images/print.svg" alt="" />
-                    <br />Clique <br>para<br>imprimir</a>
-                <?
-elseif ($vip1ano == 1):
-?>
-            <a href="#" data-file-id="<?= $arquivo['id'] ?>" class="text-print"><img  class="print" src="<?= URL_SITE ?>assets/images/print.svg" alt="" />
-                    <br />Clique <br>para<br>imprimir</a>
-             <?
-endif;
-?>
-           </div>
-        </div>
+        
         
     </div>
 </section>

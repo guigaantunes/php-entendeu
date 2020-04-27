@@ -47,23 +47,25 @@
     $cliente = $classCliente->getById($_SESSION['cliente']['id']);
     
     
-    $arquivo = $classArquivo->getById($_GET['file_id']);
-    
+    $sql = "
+    SELECT * 
+    FROM arquivo
+    WHERE id = {$_GET["file_id"]} "	;
+    $arquivo = $classArquivo->run($sql, array());
+    $arquivo =  $arquivo[0];
     $url = $_SERVER['DOCUMENT_ROOT']."/assets/dinamicos/materialestudo/$arquivo[id_referencia]/arquivo/$arquivo[id]$arquivo[arquivo]";
-    
+
     $files = [
         $url,
     ];
-    
     $pdf = new FpdiProtection();
     //$ownerPassword = $pdf->setProtection([FpdiProtection::PERM_PRINT], 'a', null, 3);
     //var_dump($ownerPassword);
     
     $fixedString = "Documento gerado exclusivamente para $cliente[nome] | CPF: $cliente[cpf]";
-        
     foreach ($files as $file) {
         $pageCount = $pdf->setSourceFile($file);//TODO o erro do arquivo está por aqui. 
-       //print_r($pageCount);
+       
         for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
             $id = $pdf->importPage($pageNo);
             $size = $pdf->getTemplateSize($id);

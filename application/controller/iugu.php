@@ -78,7 +78,11 @@ class Iugu
             $clientes["zip_code"]     = preg_replace("/[^0-9]/", "", $cliente["cep"]);
             $clientes["cc"]           = "";
             $clientes["number"]       = $cliente["numero"];
-            
+            if(substr($clientes["zip_code"],-3)=="000"){
+                $clientes["district"]   = $cliente["bairro"];
+                $clientes["city"]       = $cliente["cidade"];
+                $clientes["state"]      = $cliente["uf"];
+            }
             
             $obj = json_encode($clientes); // transformando a variavel auxiliar em um obj JSON
             //         var_dump($obj);

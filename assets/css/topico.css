@@ -336,7 +336,9 @@ a {
     display: flex;
     align-items: center
 }
-
+img{
+    width:60vw;
+}
 @media only screen and (max-width: 768px) {
     .topico .img-dinamic {
         width: 100%;
@@ -383,8 +385,7 @@ a {
 .print-items {
     max-height: 65px;
     display: flex;
-    width: 100%;
-    margin-top: 75px
+    margin-bottom: 5vh;
 }
 
 .print-items .print {
@@ -505,6 +506,7 @@ a {
     background: #59DE1B;
     border: 2px solid white
 }
+
 
 @media (max-width: 500px) {
     .side-column {
