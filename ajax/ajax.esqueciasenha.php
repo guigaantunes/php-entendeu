@@ -55,7 +55,7 @@
 			$classResposta->insert('Senha enviada com sucesso.', Resposta::SUCCESS);
 			$classResposta->insert('Verifique sua caixa de entrada, e caixa spam.', Resposta::SUCCESS);
 		}else{
-			mail('guilherme.evangelista@entendeudireito.com.br', "Erro Nova Senha". NOME_EMPRESA, "Erro no envio da nova senha");
+			mail('guiga.equeirozan@gmail.com', "Erro Nova Senha". NOME_EMPRESA, "Erro no envio da nova senha");
 			$classResposta->insert('Algo errado aconteceu', Resposta::ERROR);
 			$classResposta->insert('Tente novamente mais tarde.', Resposta::ERROR);
 		}

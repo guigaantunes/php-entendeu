@@ -1,12 +1,4 @@
 <?  
-    if ( !isset($_SESSION['cliente']['id']) ) {
-      if($_GET['vip']==2 || $_GET['vip'==2]){
-        echo "<script>window.location.href = '/login?login=1'</script>";
-      }
-        echo "<script>window.location.href = '/login?planos=vip'</script>";
-    }
-
-
     $clienteLogado = isset($_SESSION['cliente']['id']);
     $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
     $ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
@@ -15,28 +7,28 @@
     $berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
     $ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
     $symbian =  strpos($_SERVER['HTTP_USER_AGENT'],"Symbian");
-$vip = $_GET["vip"];
-if($vip == 1){
-  $valor = "79,90";
-}
-else if($vip == 0){
-  $valor = "39,90";
-}
-else if($vip == 2){
-  $valor = "24,90";
-}
-else if($vip == 3){
-  $valor = "54,90";
-}
-if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
-    $mobal =  "";
-    $pc = "display:none";
-  $cel= true;
-} else {
-    $pc =  "";
-    $mobal = "display:none";
-  $cel=false;
-}
+    $vip = $_GET["vip"];
+    if($vip == 1){
+      $valor = "79,90";
+    }
+    else if($vip == 0){
+      $valor = "39,90";
+    }
+    else if($vip == 2){
+      $valor = "24,90";
+    }
+    else if($vip == 3){
+      $valor = "54,90";
+    }
+    if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
+        $mobal =  "";
+        $pc = "display:none";
+      $cel= true;
+    } else {
+        $pc =  "";
+        $mobal = "display:none";
+      $cel=false;
+    }
 ?>
 <script type="application/x-javascript">
   addEventListener("load", function() {
@@ -50,7 +42,6 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
 </script>
 <script src="/assets/js/pages/planoiugu.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/formatter.js/0.1.5/formatter.min.js"></script>
-<!-- //custom-theme -->
 <link href="https://entendeudireito.com.br/application/views/checkout/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="https://wentendeudireito.com.br/application/views/checkout/css/creditly.css" type="text/css" media="all" />
 <link rel="stylesheet" href="https://entendeudireito.com.br/application/views/checkout/css/easy-responsive-tabs.css">
@@ -59,6 +50,7 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
 <script src="https://entendeudireito.com.br/application/views/checkout/js/jquery.min.js"></script>
 <script type="text/javascript" src="https://js.iugu.com/v2"></script>
 <script src="https://entendeudireito.com.br/application/views/checkout/js/iugu.js"></script>
+<script src="https://entendeudireito.com.br/application/views/checkout/js/cupom.js"></script>
 <link href="//fonts.googleapis.com/css?family=Overpass:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -207,11 +199,11 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
                   </div>
                   
                 </div>
-                <div class="token-area " style="display:none">
+                <div class="token-area " style="">
                   <label for="token">Token do Cartão de Crédito - Enviar para seu Servidor</label>
                   <input type="text"  name="token" id="token" value="" readonly="true" size="64" style="text-align:center" />
                 </div>
-
+                
 
                 <div class="center">
                   <footer class="pricing-footer"> <button class="select" href="#" id="pagar" data-id-cliente="<?=$_SESSION['cliente']['id']?>" data-vip="<?=$vip?>" type="submit">Pagar</button> </footer>
@@ -227,6 +219,9 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
               </div>
             </div>
           </div>
+                  <input id="nome" type="text" name="cupom" value="">
+                  <button  href="java" onclick="cupom()" id="verificar" type="submit">verificar</button>
+                  <p class="resposta"></p>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@
 (function ($) {
 	var defaults = {
 		url: false,
-		callback: false,
+		callback: true,
 		target: false,
 		duration: 120,
 		on: 'mouseover', // other options: grab, click, toggle
@@ -230,6 +230,7 @@
 			}
 			
 			img.setAttribute('role', 'presentation');
+			img.setAttribute('class', 'topico-img');
 			img.alt = '';
 			img.src = settings.url;
 		});

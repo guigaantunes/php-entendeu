@@ -336,9 +336,6 @@ a {
     display: flex;
     align-items: center
 }
-img{
-    width:60vw;
-}
 @media only screen and (max-width: 768px) {
     .topico .img-dinamic {
         width: 100%;

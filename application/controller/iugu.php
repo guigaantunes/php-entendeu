@@ -133,15 +133,9 @@ class Iugu
         $vip = $dados['vip'];*/
         $classCliente = new Cliente;
         $cliente      = $classCliente->getById($id);
-        if ($vip == 0) {
-            $plano = "plano_basico";
-        } elseif ($vip == 1) {
-            $plano = "plano_entendeu";
-        } elseif ($vip == 2) {
-            $plano = "plano_oab";
-        } else{
-          $plano = "plano_covid";
-        }
+        $planos        = new Planos;
+        $plano = $planos->getById_planos($vip);
+        
         $ch = curl_init();
         
         $config_boleto["ignore_due_email"]       = false; //Desabilita o envio de emails notificando o vencimento de uma fatura em assinaturas que podem ser pagas com boleto bancário
@@ -272,15 +266,8 @@ class Iugu
     {
         $classCliente = new Cliente;
         $cliente      = $classCliente->getById($id);
-        if ($vip == 0) {
-            $plano = "plano_basico";
-        } elseif ($vip == 1) {
-            $plano = "plano_entendeu";
-        } elseif ($vip == 2) {
-            $plano = "plano_oab";
-        } else{
-          $plano = "plano_covid";
-        }
+        $planos        = new Planos;
+        $plano = $planos->getById_planos($vip);
         $ch = curl_init();
         
         $config_cartao["ignore_due_email"]       = false; //Desabilita o envio de emails notificando o vencimento de uma fatura em assinaturas que podem ser pagas com boleto bancário

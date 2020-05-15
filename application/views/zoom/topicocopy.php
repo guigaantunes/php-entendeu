@@ -82,7 +82,7 @@ oncontextmenu='return false';
 document.onmousedown=click
 document.oncontextmenu = new Function("return false;")
 </script>
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 	<script src='<?=URL_SITE."/application/views/zoom/"?>jquery.zoom.js'></script>
 	<script>
 		$(document).ready(function(){

@@ -65,7 +65,8 @@ $(document).on("click", ".item-slide", function(){
 	var src = $(this).find('img').attr('src');
 	$(this).addClass('active');
 	$(this).siblings().removeClass('active');
-	$('#img-dinamic').attr('src', src);
+    $('#img-dinamic').attr('src', src);
+    $('.zoomImg').attr('src', src);
 // 	changeSlideHeight();
 });
 function toggleBtn(botao){

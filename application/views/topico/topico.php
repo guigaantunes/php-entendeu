@@ -9,13 +9,10 @@ require_once(PATH_ABSOLUTO . "application/controller/iugu.php");
 $classIugu = new Iugu;
 
 $e = $classIugu->temAssinatura($_SESSION['cliente']['id']);
-if ($e == false) {
-    $acesso = 0;
-} else if ($e == "plano_basico" || $e == "plano_oab") {
-    $acesso = 1;
-} else {
-    $acesso = 2;
-}
+$planos        = new Planos;
+if($e!=false){
+$acesso = $planos->getPlanbyIdentifier($e);}
+
 $cliente = $classCliente->getbyId($_SESSION['cliente']['id']);
 
 $id       = $this->parametros[1];
@@ -35,6 +32,10 @@ $assinatura = $classAssinatura->getAssinatura();
 
 
 
+if ($_REQUEST['teste'] == 'sim') {
+    $teste1 = $classAssinatura->temAcessoBasico(709);
+    echo "<pre>Cliente 709 => " . print_r($teste1, true);
+}
 if (isset($cliente["data1ano"]) && $cliente["data1ano"] != "0000-00-00") {
     if (strtotime($cliente["data1ano"]) >= strtotime(date("Y-m-d"))) {
         $liberado1ano = true;
@@ -49,12 +50,46 @@ if (isset($cliente["data1ano"]) && $cliente["data1ano"] != "0000-00-00") {
     echo $vip1ano;
 }
 
+$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
+$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+$berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+$symbian =  strpos($_SERVER['HTTP_USER_AGENT'],"Symbian");
 
+if ($iphone || $ipad || $android || $palmpre || $ipod || $berry ) {
+    $styless='';
+} else {
+    
+    $styless='ex3';
+    
+}
 
 
 //echo "1".$_SESSION['cliente']['id'];
 ?>
 <body>
+<script>
+function click() {
+if (event.button==2||event.button==3) {
+oncontextmenu='return false';
+}
+}
+document.onmousedown=click
+document.oncontextmenu = new Function("return false;")
+</script>
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+	<script src='<?=URL_SITE."/application/views/zoom/"?>jquery.zoom.js'></script>
+	<script>
+		$(document).ready(function(){
+			$('#ex1').zoom();
+			$('#ex2').zoom({ on:'grab' });
+			$('#ex3').zoom({ on:'click' });			 
+			$('#ex4').zoom({ on:'toggle' });
+		});
+	</script>
+
     <style>
         * {padding:0;margin:0;}
 
@@ -96,11 +131,35 @@ if (isset($cliente["data1ano"]) && $cliente["data1ano"] != "0000-00-00") {
         </div>
     </div>
 </section>
-
+<section style="margin: 0 auto;max-width: 1440px;width: 95%;">
+   
+    
+<div style="float:right !important;"class="print-items">
+    
+                <?
+if ($arquivo && $classAssinatura->temAcessoVip() || $acesso == 2):
+?>
+                   <a href="#" data-file-id="<?= $arquivo['id'] ?>" class="text-print"><img  class="print" src="<?= URL_SITE ?>assets/images/print.svg" alt="" />
+                    <br />Clique <br>para<br>imprimir</a>
+                <?
+elseif ($vip1ano == 1):
+?>
+            <a href="#" data-file-id="<?= $arquivo['id'] ?>" class="text-print"><img  class="print" src="<?= URL_SITE ?>assets/images/print.svg" alt="" />
+                    <br />Clique <br>para<br>imprimir</a>
+             <?
+endif;
+?>
+           
+    </div>
+</section>            
 <section class="big-spaces-top">
+
     <script src="<?= URL_SITE ?>assets/js/pages/materialestudo.js?d=<?= date('YmdHis') ?>"></script>
+   
     <div class="container">
+    
         <div class="side-column">
+        
             <?
 if (isset($_SESSION['cliente']['id'])):
 ?>
@@ -116,6 +175,7 @@ if (isset($_SESSION['cliente']['id'])):
                         </div>
                     </div>
                 </form>
+                
             <?
 endif;
 ?>
@@ -135,8 +195,9 @@ if ($conteudo['demonstrativo'] || $classAssinatura->temAcessoBasico() || $libera
 ?>
                <a class="topico-title text-gray"><?= $conteudo['titulo'] ?></a>
 <!--                 <img class="topico-img" src="<?= $imagem['g'] ?>" alt="" /> -->
-                <div class="img-dinamic">                    
-                    <img class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'].'?'.date("YmdHis") ?>" alt=""/>
+                <div class="img-dinamic" id="<?=$styless?>">                    
+                    <img class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'] ?>" alt=""/>
+                    
                 </div>
                 <div class="media">
                     <ul class="slide">
@@ -144,7 +205,7 @@ if ($conteudo['demonstrativo'] || $classAssinatura->temAcessoBasico() || $libera
     foreach ($imagem as $img):
 ?>
                            <li class="item-slide">
-                                <img src="<?= $img['g'].'?'.date("YmdHis") ?>" alt="" />
+                                <img src="<?= $img['g'] ?>" alt="" />
                             </li>
                         <?
     endforeach;
@@ -158,8 +219,8 @@ elseif ($_SESSION['cliente']['id']):
            
             <a class="topico-title text-gray"><?= $conteudo['titulo'] ?></a>
 <!--                 <img class="topico-img" src="<?= $imagem['g'] ?>" alt="" /> -->
-                <div class="img-dinamic">                    
-                    <img style="-webkit-filter: blur(20px);" class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'].'?'.date("YmdHis") ?>" alt=""/>
+                <div class="img-dinamic " id="">                    
+                    <img style="-webkit-filter: blur(20px);" class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'] ?>" alt=""/>
                 </div>
                 <div class="media">
                     <ul class="slide">
@@ -167,7 +228,7 @@ elseif ($_SESSION['cliente']['id']):
     foreach ($imagem as $img):
 ?>
                            <li class="item-slide">
-                                <img style="-webkit-filter: blur(20px);"src="<?= $img['g'].'?'.date("YmdHis") ?>" alt="" />
+                                <img style="-webkit-filter: blur(20px);"src="<?= $img['g'] ?>" alt="" />
                             </li>
                         <?
     endforeach;
@@ -189,7 +250,7 @@ else:
             <a class="topico-title text-gray"><?= $conteudo['titulo'] ?></a>
 <!--                 <img class="topico-img" src="<?= $imagem['g'] ?>" alt="" /> -->
                 <div class="img-dinamic">                    
-                    <img style="-webkit-filter: blur(20px);" class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'].'?='.date("YmdHis") ?>" alt=""/>
+                    <img style="-webkit-filter: blur(20px);" class="topico-img" id="img-dinamic" src="<?= $imagem[0]['g'] ?>" alt=""/>
                 </div>
                 <div class="media">
                     <ul class="slide">
@@ -197,7 +258,7 @@ else:
     foreach ($imagem as $img):
 ?>
                            <li class="item-slide">
-                                <img style="-webkit-filter: blur(20px);"src="<?= $img['g'].'?'.date("YmdHis") ?>" alt="" />
+                                <img style="-webkit-filter: blur(20px);"src="<?= $img['g'] ?>" alt="" />
                             </li>
                         <?
     endforeach;
@@ -222,24 +283,7 @@ endif;
                 </i>
             </a>
         </div>
-        <div class="side-column column-2">
-            <div class="print-items">
-    
-                <?
-if ($arquivo && $classAssinatura->temAcessoVip() || $acesso == 2):
-?>
-                   <a href="#" data-file-id="<?= $arquivo['id'] ?>" class="text-print"><img  class="print" src="<?= URL_SITE ?>assets/images/print.svg" alt="" />
-                    <br />Clique <br>para<br>imprimir</a>
-                <?
-elseif ($vip1ano == 1):
-?>
-            <a href="#" data-file-id="<?= $arquivo['id'] ?>" class="text-print"><img  class="print" src="<?= URL_SITE ?>assets/images/print.svg" alt="" />
-                    <br />Clique <br>para<br>imprimir</a>
-             <?
-endif;
-?>
-           </div>
-        </div>
+        
         
     </div>
 </section>
