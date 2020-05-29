@@ -57,10 +57,10 @@
 							?>
 								<li class="collection-item avatar" id="<?=$valorFoto["id"]?>">
 									<?php if(strtolower($tipo) != 'arquivo'): ?>
-									    <img src="<?=URL_SITE . "assets/dinamicos/$tabela/$id/$tipo/p" . $valorFoto['id'] .  $valorFoto['arquivo']?>" alt="<?=$valorFoto['titulo']?>" class="circle large">
+									    <img src="<?=URL_SITE . "assets/dinamicos/$tabela/$id/$tipo/g" . $valorFoto['id'] .  $valorFoto['arquivo']?>" alt="<?=$valorFoto['titulo']?>" class="circle large">
 									<?php else: ?>
     									<div class="circle large" style="width: 70px;height: 70px; background: #c5c5c5; display: flex; align-items: center; justify-content: center"><i class="material-icons white-text">insert_drive_file</i></div>
-    									<a target="_blank" style="float: left; margin-top: 22px;" href="<?=URL_SITE . "assets/dinamicos/$tabela/$id/$tipo/p" . $valorFoto['id'] .  $valorFoto['arquivo']?>"><?=$valorFoto['arquivo']?></a>
+    									<a target="_blank" style="float: left; margin-top: 22px;" href="<?=URL_SITE . "assets/dinamicos/$tabela/$id/$tipo/g" . $valorFoto['id'] .  $valorFoto['arquivo']?>"><?=$valorFoto['arquivo']?></a>
 									<?php endif; ?>
 									<div class="row">
 										<div class="acoes col s1 right right-align">

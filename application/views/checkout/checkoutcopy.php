@@ -199,7 +199,7 @@
                   </div>
                   
                 </div>
-                <div class="token-area " style="">
+                <div class="token-area " style="display:none" >
                   <label for="token">Token do Cartão de Crédito - Enviar para seu Servidor</label>
                   <input type="text"  name="token" id="token" value="" readonly="true" size="64" style="text-align:center" />
                 </div>
