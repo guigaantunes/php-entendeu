@@ -41,7 +41,11 @@
 	$registro = end($registro);
 	
 	$disciplinas = $classDisciplina->listAll();
-	
+	$materias = $classMateria->getBy(
+		$dados = array(
+			'status' => 1
+		)
+	);
 	if ($id) {
     	$materias = $classMateria->getBy(
         	$dados = array(

@@ -1,0 +1,55 @@
+.ebook{
+    width:20em;
+    margin :20px;
+    background-color: #E2E2E2;
+    border-radius: 15px;
+    display: inline-block;
+}
+.ebook > img{
+    width:100%;
+    margin-top:2em;
+}
+.ebook > a {
+    padding:7.35em;
+    padding-top:1em;
+    padding-bottom:1em;
+    background-color:#FC933B;
+    border-bottom-left-radius:15px;
+    border-bottom-right-radius:15px;
+    color:white;
+}
+.ebook > a:hover{
+    background-color:white;
+    color:black;
+    border:solid #E2E2E2 1px;
+    padding:7.28em;
+    padding-top:1em;
+    padding-bottom:1em;
+}
+.esquerda{
+    width:40em;
+    margin:7em;
+    margin-top:1em;
+}
+.header{
+    display: inline-flex;
+    width:100%;
+}
+.direita >  img{
+    width:25%;
+}
+.direita{
+    width:40em;
+}
+.direita > p{
+    width:80%;
+    text-align: center;
+}
+.invisible{
+    color:#E2E2E2 !important;
+}
+h1{
+    font-size:1.5rem !important;
+    height: 5rem;
+    text-align: center;
+}

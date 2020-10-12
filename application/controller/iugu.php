@@ -82,6 +82,7 @@ class Iugu
                 $clientes["district"]   = $cliente["bairro"];
                 $clientes["city"]       = $cliente["cidade"];
                 $clientes["state"]      = $cliente["uf"];
+                $clientes["street"] = $cliente["endereco"];
             }
             
             $obj = json_encode($clientes); // transformando a variavel auxiliar em um obj JSON
@@ -202,6 +203,8 @@ class Iugu
         
         $r = json_decode($resultado, true); // tranformando o json em um array
         //var_dump($r);z
+        
+        
         if ($r["totalItems"] > 1) {
             
             $resp = false;
@@ -311,5 +314,109 @@ class Iugu
         $r['status'] = true;
         return $r;
     }   
+    public function AssinarAnual($obj,$cliente){
+        //cobrança direta
+        //cria fatura
+        //paga fatura
+        //pago -> cria assinatura de 1 ano, tabela nova com id da fatura, dia de finalização da assinatura, id cliente
+        if($obj['vip']==3 || $obj['vip'] == 4){
+            $cupom =  "QCONCURSOS";
+        }
+        else{
+            $cupom = "ENTENDEU";
+        }
+        $config= array (
+            'items' => 
+            array (
+              0 => 
+              array (
+                'description' => 'Assinatura anual'.$cupom,
+                'quantity' => 1,
+                'price_cents' => preg_replace("/[^0-9]/", "", $obj["valor"])."0",
+              ),
+            ),
+            'payer' => 
+            array (
+              'name' => $cliente["nome"],
+              //'cpf_cnpj' => '05640331119',
+              'email' => $cliente["email"],
+            ),
+            'token' =>$obj['token'] ,
+            'email' => $cliente["email"],
+            'months' => $obj['parcelas'],
+            'keep_dunning' => false,
+        );
+        $ch = curl_init();
+        $data = json_encode($config);
+        curl_setopt($ch, CURLOPT_URL, 'https://api.iugu.com/v1/charge'); //link api de criação de assinatura
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Basic ' . base64_encode(TOKEN_IUGU.":")
+        ); //headers, api token para identificação
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $resultado = curl_exec($ch);
+        $result = json_decode($resultado,true);
+        if( $result["LR"]==0){
+            if($this->CadastrarAnual($cliente['id'],$result['invoice_id'],$obj['vip'])){
+                return "Cadastrado";
+            }
+            else{
+                return "Erro no cadastro";
+            }
+
+        }
+        else{
+            return $result["LR"];
+        }
+    }
+    public function VerificarAnual($id){
+        if(!empty($id)){
+        $PDO    = new PDO('mysql:host=' . SERVIDOR . ';dbname=' . BANCODEDADOS, USUARIO, SENHA);
+        $sql    = "select * from anuais where id_cliente = ".$id." ORDER BY id DESC LIMIT 1 ";
+        $result = $PDO->query( $sql );
+        $rows = $result->fetchAll();
+        if(!empty($rows)){
+        $ch           = curl_init();
+        $headers      = array(
+            'Content-Type: application/json',
+            'Authorization: Basic ' . base64_encode(TOKEN_IUGU.":")
+        ); //headers, api token para identificação
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers); //inserindo os headers
+        curl_setopt($ch, CURLOPT_URL, 'https://api.iugu.com/v1/invoices/'.$rows[0]["fatura"]); // setando a url da api
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $resultado = curl_exec($ch); // enviando a chamada e colocando em uma variavel
+        
+        
+        
+        curl_close($ch); // fechando a conexão
+        
+        $r = json_decode($resultado, true); // tranformando o json em um array
+       
+            if($r['status']=="paid" && date('d/m/Y')<=$rows[0]['data_pagamento']){
+                return $rows[0]['vip'];
+            }
+            return false;
+        }
+        else{
+            return false;
+        }}
+    }
+    public function CadastrarAnual($id_cliente,$fatura,$vip){
+        if($vip==3){
+            $vip=2;
+        }
+        if($vip==4 || $vip==5){
+            $vip=1;
+        }
+        $PDO    = new PDO('mysql:host=' . SERVIDOR . ';dbname=' . BANCODEDADOS, USUARIO, SENHA);
+        $data=date('d/m/Y');
+        $sql    = "INSERT INTO anuais(id_cliente,fatura,data_pagamento,vip) VALUES ($id_cliente, '$fatura','$data','$vip')";
+        $result = $PDO->query($sql);
+        return $result;
+    }
 }
 ?>

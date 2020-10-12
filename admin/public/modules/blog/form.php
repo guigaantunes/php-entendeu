@@ -8,6 +8,7 @@
 	
 	$class          = new Blog;
 	$classCategoria = new CategoriaBlog;
+	$classMateria = new Materia;
 /*
 	$classTopico = new Topico;
 	$classMateria = new Materia;
@@ -29,6 +30,11 @@
 	$registro = end($registro);
 	
 	$categorias = $classCategoria->listAll();
+	$materias = $classMateria->getBy(
+		$dados = array(
+			'status' => 1
+		)
+	);
 	
 /*
 	$disciplinas = $classDisciplina->listAll();
@@ -94,6 +100,17 @@
 						<span >Categoria *</span>
 					</label>
 				</div>
+				<div class="input-field col s12 m6">
+					<select id="materia" class="" name="dados[id_materia]" required>
+    					<option value="" disabled>Selecione uma opção...</option>
+    					<?foreach($materias as $i => $materia):?>
+    					    <option value="<?=$materia['id']?>" <?=($materia['id'] == $registro['id_materia'] ? 'selected' : '')?> ><?=$materia['titulo']?></option>
+    					<?endforeach;?>
+					</select>
+					<label for="materia" >
+						<span >Matéria *</span>
+					</label>
+				</div>
 				
 <!--
 				<div class="input-field col s12 m4">
@@ -139,6 +156,7 @@
                 	<h3><label for="texto">conteúdo *</label></h3>
                     <textarea required class="froala required" id="conteudo" name="dados[conteudo]" maxlength="<?=(1<<16) - 1?>"><?=$registro['conteudo']?></textarea>
                 </div>
+				
 			</div>
 		</form>
 	</div>

@@ -1,5 +1,4 @@
 <?php	
-	
   session_start();
   //var_dump(aws);
 	require_once("config.php");
@@ -77,6 +76,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Claudia Rocha Franco Lopes" />
+    
     <?php $classRoute->includeMetas(); ?>
 
     <link rel="shortcut icon" href="<?=URL_SITE?>ico.png" type="image/x-icon">
@@ -89,11 +89,25 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="<?=URL_SITE?>assets/js/jquery1.11.1.min.js"></script>
-    <script src="//code.jivosite.com/widget.js" data-jv-id="9g23H69wjl" async></script>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5e8b81dc69e9320caac0dee2/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 
 
-
-
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="p:domain_verify" content="af68a539ac9371d2cb41c2a67486f560"/>
 
   </head>
 

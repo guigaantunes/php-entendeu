@@ -1,4 +1,5 @@
 <?php
+
 	session_start();
 	
 	require_once $_SERVER['DOCUMENT_ROOT'].'/config.php';
@@ -11,12 +12,13 @@
 	
 	$class = new SeoMeta;
  
-  
+
   
 	
 // 	$dadosRegistro = $class->get();
 
 		$id = $_REQUEST["identificador"];
+		
 		$retorno = $class->dados($id);
     $meta = $retorno[0];
 

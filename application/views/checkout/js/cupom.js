@@ -23,4 +23,18 @@
           }
         });
     }
+    function cupomAnuais(){
+      $(".resposta #append").remove();
+      let cupom = $("input[type=text][name=cupom]").val();
+      if(cupom=="QC15ENTENDEU"){
+        window.location.href="https://entendeudireito.com.br/anuais?vip=3";
+      }
+      else if (cupom=="QC15BASICO"){
+        window.location.href="https://entendeudireito.com.br/anuais?vip=4";
+      }
+      else if (cupom=="EDSOCIAL"){
+        window.location.href="https://entendeudireito.com.br/anuais?vip=5";
+      }
+  }
+    
 

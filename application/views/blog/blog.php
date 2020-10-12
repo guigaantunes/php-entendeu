@@ -36,12 +36,12 @@
 	    	<?foreach($blogs as $i => $blog):?>
 	    	    <div class="noticia">
 	    			<div class="div-img">
-	    				<img class="noticia-img div-img" src="<?=$blog['image']?>" alt="" />
+	    				<img class="noticia-img div-img" src="<?=$blog['image_lg']?>" alt="" />
 	    			</div>
 	    			<div class="noticia-text">
 	    				<a class="titulo-noticia"><?=$blog['titulo']?><br></a>
 	    				<span class="infos-noticia"><?=ucfirst($blog['data_formatada'])?> | <?=$blog['autor']?></span>
-	    				<p class="conteudo-noticia"><?=( strlen(html_entity_decode($blog['conteudo'])) > 300 ? substr(html_entity_decode($blog['conteudo']),0, 300).'...' : html_entity_decode($blog['conteudo']) )?></p>
+	    				<p class="conteudo-noticia"><?echo strip_tags( strlen(html_entity_decode($blog['conteudo'])) > 300 ? substr(html_entity_decode($blog['conteudo']),0, 300).'...' : html_entity_decode($blog['conteudo']) )?></p>
 	    				<div>
 	    					<a class="btn green btn-small green-hover" href="/conteudo/<?=$blog['url']?>">Ver matéria completa</a>
 	    				</div>

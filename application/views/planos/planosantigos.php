@@ -28,13 +28,12 @@ $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
   </script>
 
   </head>
-<!--<section class="tiny-size section-space all-content center" style="width:1000px;" >
-	<div>
-		<h1 class="title text-gray">Escolha entre o desconto no plano anual ou a opção de cancelar quando quiser!</h1>
-		<p class="big-text text-gray text-left">Nos planos mensais você paga o mesmo valor para ter acesso aos nossos materiais e pode cancelar quando quiser. <br>
-Para quem já tem um ritmo de estudo e está chegando a tão sonhada aprovação no concurso dos sonhos os planos anuais são os mais indicados, com eles você tem até 35% de desconto parcelando em até 12X no cartão e tem acesso liberado durante um ano</p>
-	</div>
-</section>-->
+<section class="section-space all-content center">
+	<div class="text-center"style="width:70vw;word-spacing: 2px;line-height:4vh;"> 
+		<h1 class="title text-gray">Como funciona?</h1>
+		<p style="font-size:2vh"class=" center">Nós trabalharmos com um plano de assinatura, por isso, todo mês o valor é debitado da sua conta, para você não precisar ir ao nosso site e realizar a compra novamente. Você pode CANCELAR QUANDO QUISER e sem pagar taxas. Você pode assinar por 1 mês apenas (informando pelo chat). Por isso, assim que não utilizar mais os nossos serviços, solicite o cancelamento. Visto que, depois que o pagamento é realizado, não é possível fazer o estorno.</div>
+    </div>
+</section>
   <body translate="no">
     <div class="pricing-container">
       <div class="pricing-switcher">
@@ -47,26 +46,27 @@ Para quem já tem um ritmo de estudo e está chegando a tão sonhada aprovação
         </p>
       </div>
       <ul class="pricing-list bounce-invert <? if($cel){ echo " center ";} ?>">
-        <li>
+        <li class="exclusive">
           <ul class="pricing-wrapper">
-            <li data-type="monthly" class="is-visible">
+            <li data-type="monthly" class="is-visible ">
               <header class="pricing-header">
                 <h2>Básico</h2>
-                <div class="price"> <span class="currency">R$</span> <span class="value">24,
+                <div class="price"> <span class="currency">R$</span> <span class="value">39,
                         90</span> <span class="duration">mês</span>
                 </div>
               </header>
               <div class="pricing-body">
                 <ul class="pricing-features">
                   <li> 1 mês de acesso;</li>
-                  <li> Acesso a mais de 1500 mapas mentais - sem opção de impressão;</li>
+                  <li> (Renovado Automáticamente)</li>
+                  <li> Acesso a mais de 1500 mapas mentais </li>
+                    <li>sem opção de impressão;</li>
                   <li> Conteúdo novo toda semana;</li>
                   <li> Suporte via whatsapp;</li>
-                  <li style="color:white">only</li>
-                  <li style="color:white"> only</li>
+                  
                 </ul>
               </div>
-              <footer class="pricing-footer"> <a class="select" href="https://www.entendeudireito.com.br/checkout?vip=2">Assine</a> </footer>
+              <footer class="pricing-footer"> <a class="select" href="http://www.entendeudireito.com.br/checkout?vip=0">Assine</a> </footer>
             </li>
             <li data-type="yearly" class="is-hidden">
               <header class="pricing-header">
@@ -78,10 +78,11 @@ Para quem já tem um ritmo de estudo e está chegando a tão sonhada aprovação
               <div class="pricing-body">
                 <ul class="pricing-features">
                   <li> Acesso por 1 ano</li>
-                  <li> Acesso a mais de 1500 mapas mentais - sem opção de impressão;</li>
+                  <li> Acesso a mais de 1500 mapas mentais;</li>
+                  <li>sem opção de impressão;</li>
                   <li> Conteúdo novo toda semana;</li>
-                  <li> Suporte via whatsapp;</li>
                   <li style="color:white"> only</li>
+                  
                   <li style="color:white"> only</li>
                 </ul>
               </div>
@@ -91,24 +92,24 @@ Para quem já tem um ritmo de estudo e está chegando a tão sonhada aprovação
         </li>
         <li class="exclusive">
           <ul class="pricing-wrapper">
-            <li data-type="monthly" class="is-visible">
+            <li style="display:none"data-type="monthly" class="is-visible">
               <header class="pricing-header">
                 <h2>Entendeu</h2>
-                <div class="price"> <span class="currency">R$</span> <span class="value">54,
+                <div class="price"> <span class="currency">R$</span> <span class="value">79,
                         90</span> <span class="duration">mês</span>
                 </div>
               </header>
               <div class="pricing-body">
                 <ul class="pricing-features">
                   <li> 1 mês de acesso;</li>
+                  <li> (Renovado Automáticamente)</li>
                   <li> Acesso a mais de 1500 mapas mentais;</li>
                   <li> Conteúdo novo toda semana;</li>
                   <li> Impressões ilimitadas;</li>
                   <li> Suporte via whatsapp;</li>
-                  <li style="color:white"> only</li>
                 </ul>
               </div>
-              <footer class="pricing-footer"> <a class="select" href="https://www.entendeudireito.com.br/checkout?vip=3">Assine</a> </footer>
+              <footer class="pricing-footer"> <a class="select" href="http://www.entendeudireito.com.br/checkout?vip=1">Assine</a> </footer>
             </li>
             <li data-type="yearly" class="is-hidden">
               <header class="pricing-header">

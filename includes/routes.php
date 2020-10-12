@@ -274,12 +274,12 @@
                         <meta property="og:url" content="'. URL_SITE .'">
                         <meta property="og:site_name" content="'.NOME_EMPRESA.'"/>
                         <meta property="og:type" content="'.URL_SITE.'">
-                        <meta property="og:image" content="'.URL_ADMIN.images/logo.png.'">
+                        <meta property="og:image" content="'.URL_ADMIN.'images/logo.png">
                         
                         <meta name="twitter:title" content="'.NOME_EMPRESA.'">
                         <meta name="twitter:description" content="Descrição da página em menos de 200 caracteres.">
                         <meta name="twitter:url" content="'. URL_SITE .'">
-                        <meta name="twitter:image" content="'.URL_ADMIN.images/logo.png.'">
+                        <meta name="twitter:image" content="'.URL_ADMIN.'"images/logo.png.">
                         <meta name="twitter:site" content="@entendeudireito">';
 			}
 						

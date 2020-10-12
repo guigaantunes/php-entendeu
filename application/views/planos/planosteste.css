@@ -1,0 +1,392 @@
+@media (max-width: 768px){
+    .titulo-esquerda {
+        width: 100%!important;
+        height:7.063rem;
+    }
+    .titulo-esquerda h1{
+        font-size:150%;
+        font-size-adjust: inherit;
+        font-family: IBM Plex Sans;
+        font-weight: bold;
+    }
+    .titulo-esquerda p{
+        font-size:1rem;
+        color:#A4AAB4;
+        font-family: IBM Plex Sans;
+    }
+    .planos-mensais{
+        width:22.563rem;
+        height:33.061rem ;
+        border-style: solid;
+        border-radius: 15px;
+        border-color:#BFC8D8;
+        border-width: 0.8px;
+        margin: 0.5rem;
+        line-height:3rem !important;
+        
+    }
+    .plano-anual{
+        width:22.563rem;
+        height:33.061rem ;
+        border-style: solid;
+        border-radius: 15px;
+        border-color:#FC933B;
+        border-width: 0.8px;
+        margin: 0.5rem;
+        background-color:#FC933B ;
+        color:white;
+    }
+    .plano{
+        margin:1rem;
+        width: 23.563rem;
+        
+    }
+    .planos-mensais h1{
+        margin:2rem;
+        margin-bottom: 0rem;
+        font-size:1.5rem !important;
+        color:#A4AAB4;
+        font-weight: bold;
+    }
+    .planos-mensais p{
+        margin:0rem;
+        font-size: 1.825rem;
+        color:#56595E;
+    
+    }
+    .price:after{
+        content:"/mês";
+        font-size:1rem;
+        position: relative;
+        top:0.27rem;
+    }
+    .price2:after{
+        content:"x12";
+        font-size:1rem;
+        position: relative;
+        top:0.27rem;
+        
+    }
+    .meio{
+        color:white !important;
+        font-size:1rem;
+        font-family:IBM Plex Sans;
+    }
+    .price3:after{
+        content:"x12";
+        font-size:1rem;
+        position: relative;
+        top:0.27rem;
+        
+    }
+    .vantagens{
+        margin:1rem;
+        font-size: 1rem;
+        font-family: 'IBM Plex Sans', sans-serif;
+    
+        
+    }
+    .vantagens li{
+        float:left !important;
+        line-height:3rem;
+        color:#56595E ;
+    
+    }
+    .first {
+        margin-top:1rem;
+    
+    }
+    .vantagens ul{
+        color:#56595E ;
+    }
+    .price{
+        font-family: Roboto;
+        font-weight: bold;
+    
+    }
+    .nome-plano{
+        font-family: IBM Plex Sans;
+        font-weight: bold;
+    }
+   
+    .price2{
+        font-family: Roboto;
+        font-weight: bold;
+    
+    }
+    .price3{
+        font-family: Roboto;
+        font-weight: bold;
+        
+    }
+    .botao-plano{
+        font-family: IBM Plex Sans;
+        font-weight: bold;
+        border: solid;
+        margin:1.5rem;
+        font-size:1.25;
+        border-radius:5px;
+        border-width: 1px;
+        border-color:#E2E2E2;
+        color:#56595E;
+        margin-top:2rem;
+        width:19.563rem;
+        height: 3.188rem;
+    }
+    .planos{
+        width:100%;
+        justify-content: center;
+        margin:auto;
+        margin-left:1.5rem;
+    }
+    .icons{
+        font-size:2rem;
+        margin:0.5rem;
+        color:black;
+    }
+    li:last-child{
+        margin-bottom:2rem;
+        
+        float:left;
+    }
+    .linha{
+        width:90%;
+        margin:1rem;
+    }
+    .plano-anual h1{
+        
+        margin:2rem;
+        margin-bottom: 0rem;
+        font-size:1.5rem !important;
+        color:white;
+        font-weight: bold;
+    }
+    .plano-anual p{
+        margin:0rem;
+        font-size: 1.825rem;
+        color:white;
+    
+    }
+    .botao-anual{
+        font-family: IBM Plex Sans;
+        font-weight: bold;
+        border: solid;
+        margin:1.5rem;
+        font-size:1.25;
+        border-radius:5px;
+        border-width: 1px;
+        border-color:#E2E2E2;
+        color:#FC933B;
+        margin-top:3rem;
+        width:19.563rem;
+        height: 3.188rem;
+        background-color:white;
+        
+    }
+    .botao-anual:hover{
+        border-color:#E2E2E2;
+        background-color:#FC933B;
+        color:white;
+    }
+    .botao-plano:hover{
+        border-color:#FC933B;
+        background-color:#FC933B;
+        color:White;
+    }
+}
+@media (min-width: 769px){
+    .titulo-esquerda {
+        width: 30%!important;
+        height:7.063rem;
+    }
+    .titulo-esquerda h1{
+        font-size:150%;
+        font-size-adjust: inherit;
+        font-family: IBM Plex Sans;
+        font-weight: bold;
+    }
+    .titulo-esquerda p{
+        font-size:1rem;
+        color:#A4AAB4;
+        font-family: IBM Plex Sans;
+    }
+    .planos-mensais{
+        width:22.563rem;
+        height:33.061rem ;
+        border-style: solid;
+        border-radius: 15px;
+        border-color:#BFC8D8;
+        border-width: 0.8px;
+        margin: 0.5rem;
+        line-height:3rem !important;
+        
+    }
+    .plano-anual{
+        width:27.986rem;
+        height: 37.249rem;
+        border-style: solid;
+        border-radius: 15px;
+        border-color:#FC933B;
+        border-width: 0.8px;
+        margin: 0.5rem;
+        background-color:#FC933B ;
+        color:white;
+    }
+    .plano{
+        margin:1rem;
+        width: 23.563rem;
+        
+    }
+    .planos-mensais h1{
+        margin:2rem;
+        margin-bottom: 0rem;
+        font-size:1.5rem !important;
+        color:#A4AAB4;
+        font-weight: bold;
+    }
+    .planos-mensais p{
+        margin:0rem;
+        font-size: 1.825rem;
+        color:#56595E;
+    
+    }
+    .price:after{
+        content:"/mês";
+        font-size:1rem;
+        position: relative;
+        top:0.27rem;
+    }
+    .price2:after{
+        content:"x12";
+        font-size:1rem;
+        position: relative;
+        top:0.27rem;
+        
+    }
+    .price3:after{
+        content:"x12";
+        font-size:1.5rem;
+        position: relative;
+        top:0.50rem;
+        
+    }
+    .vantagens{
+        margin:1rem;
+        font-size: 1.1rem;
+        font-family: 'IBM Plex Sans', sans-serif;
+    
+        
+    }
+    .vantagens li{
+        float:left !important;
+        line-height:3rem;
+        color:#56595E ;
+    
+    }
+    .first {
+        margin-top:1rem;
+    
+    }
+    .vantagens ul{
+        color:#56595E ;
+    }
+    .price{
+        font-family: Roboto;
+        font-weight: bold;
+    
+    }
+    .nome-plano{
+        font-family: IBM Plex Sans;
+        font-weight: bold;
+    }
+    .espaço{
+        margin-top:2rem;
+    }
+    .price2{
+        font-family: Roboto;
+        font-weight: bold;
+    
+    }
+    .price3{
+        font-family: Roboto;
+        font-weight: bold;
+        
+    }
+    .botao-plano{
+        font-family: IBM Plex Sans;
+        font-weight: bold;
+        border: solid;
+        margin:1.5rem;
+        font-size:1.25;
+        border-radius:5px;
+        border-width: 1px;
+        border-color:#E2E2E2;
+        color:#56595E;
+        margin-top:2rem;
+        width:19.563rem;
+        height: 3.188rem;
+    }
+    .planos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icons{
+        font-size:2rem;
+        margin:0.5rem;
+        color:black;
+    }
+    li:last-child{
+        margin-bottom:2rem;
+        
+        float:left;
+    }
+    .linha{
+        width:90%;
+        margin:1rem;
+    }
+    .plano-anual h1{
+        margin:2rem;
+        margin-bottom: 0rem;
+        font-size:2.125rem !important;
+        color:white;
+        font-weight: bold;
+    }
+    .plano-anual p{
+        margin:0rem;
+        font-size: 3rem;
+        color:white;
+    
+    }
+    .meio{
+        color:white !important;
+        font-size:1.4rem;
+        font-family:IBM Plex Sans;
+    }
+    .botao-anual{
+        font-family: IBM Plex Sans;
+        font-weight: bold;
+        border: solid;
+        margin:1.5rem;
+        font-size:1.25;
+        border-radius:5px;
+        border-width: 1px;
+        border-color:#E2E2E2;
+        color:#FC933B;
+        margin-top:4rem;
+        width:24.563rem;
+        height: 3.188rem;
+        background-color:white;
+        
+    }
+    .botao-anual:hover{
+        border-color:#E2E2E2;
+        background-color:#FC933B;
+        color:white;
+    }
+    .botao-plano:hover{
+        border-color:#FC933B;
+        background-color:#FC933B;
+        color:White;
+    }
+}

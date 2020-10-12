@@ -7,12 +7,16 @@ $classLido       = new ClienteLeuMaterial;
 $classAssinatura = new Assinatura;
 require_once(PATH_ABSOLUTO . "application/controller/iugu.php");
 $classIugu = new Iugu;
-
+$anuais = $classIugu->VerificarAnual($_SESSION['cliente']['id']);
 $e = $classIugu->temAssinatura($_SESSION['cliente']['id']);
 $planos        = new Planos;
 if($e!=false){
-$acesso = $planos->getPlanbyIdentifier($e);}
+$acesso = $planos->getPlanbyIdentifier($e);
 
+}elseif($anuais){
+    $acesso = $anuais;
+}
+    
 $cliente = $classCliente->getbyId($_SESSION['cliente']['id']);
 
 $id       = $this->parametros[1];
